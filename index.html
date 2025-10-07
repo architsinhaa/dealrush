@@ -81,7 +81,59 @@
   </div>
 </section>
 
+<!--- Form -->
+
+  <section id="inbox-pack" class="p-12 bg-gray-50 min-h-screen flex flex-col items-center justify-center">
+  <div class="max-w-3xl w-full bg-white shadow-2xl rounded-2xl p-8">
+    <h2 class="text-4xl font-bold text-center mb-6 text-gray-900">
+      Get Your <span class="text-red-500">Inbox Ignition Pack</span>
+    </h2>
+    <p class="text-gray-600 text-center mb-10">
+      Fill out this short form to help us tailor your AI-powered outreach system.
+    </p>
+
+    <div class="google-form-container">
+      <iframe 
+        src="https://forms.gle/gTxkT4xKB4LVjWSx9" 
+        width="100%" 
+        height="900" 
+        frameborder="0" 
+        marginheight="0" 
+        marginwidth="0"
+        class="google-form-iframe"
+      >
+        Loading…
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<style>
+  .google-form-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1rem;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+  }
+
+  .google-form-iframe {
+    border: none;
+    filter: brightness(1.02) saturate(1.1);
+  }
+
+  body {
+    background: linear-gradient(to bottom right, #ffffff, #f8f8f8);
+    font-family: 'Inter', sans-serif;
+  }
+
+  h2 span {
+    color: #FF5A5F;
+  }
+</style>
+
+
 <!-- CTA -->
+  
 <section id="cta" class="bg-white py-16">
   <div class="max-w-3xl mx-auto text-center space-y-6 px-6">
     <h2 class="text-3xl font-bold">Ready to ignite your inbox?</h2>
