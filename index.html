@@ -1,124 +1,104 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>DealRush — AI-powered sales systems for modern agencies</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DealRush — AI-powered sales systems for modern agencies</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  :root {
+    --light-red: #FF6B6B;
+    --light-grey: #F6F6F7;
+  }
+</style>
 </head>
-<body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <div class="brand">
-        <div class="logo">DR</div>
-        <div class="brand-text">
-          <h1>DealRush</h1>
-          <p class="tagline">AI-powered sales systems for modern agencies</p>
-        </div>
-      </div>
-      <nav class="nav">
-        <a class="btn-ghost" href="#services">Services</a>
-        <a class="btn-ghost" href="#why">Why</a>
-        <a class="btn" id="cta-top" href="#cta">Get the Inbox Ignition Pack</a>
-      </nav>
+<body class="bg-[var(--light-grey)] text-gray-900 font-sans">
+
+<!-- Header -->
+<header class="flex justify-between items-center p-6 max-w-6xl mx-auto">
+  <div class="text-xl font-bold">DealRush</div>
+  <nav class="space-x-4">
+    <a href="#services" class="text-gray-700 hover:text-[var(--light-red)]">Services</a>
+    <a href="#why" class="text-gray-700 hover:text-[var(--light-red)]">Why</a>
+    <a href="#cta" class="bg-[var(--light-red)] text-white px-4 py-2 rounded hover:bg-red-500">Inbox Pack</a>
+  </nav>
+</header>
+
+<!-- Hero -->
+<section class="max-w-6xl mx-auto flex flex-col md:flex-row items-center px-6 py-16">
+  <div class="flex-1 space-y-6">
+    <h1 class="text-4xl md:text-5xl font-bold">AI-powered sales systems for modern agencies</h1>
+    <p class="text-gray-700 text-lg md:text-xl">We build AI-first lead scraping, outreach automation and delivery systems so agencies can win clients predictably.</p>
+    <a href="#cta" class="inline-block bg-[var(--light-red)] text-white px-6 py-3 rounded-lg hover:bg-red-500 font-semibold">Get Inbox Ignition Pack</a>
+  </div>
+  <div class="flex-1 mt-10 md:mt-0 flex justify-center">
+    <div class="w-64 h-64 bg-[var(--light-red)] rounded-xl opacity-30"></div>
+  </div>
+</section>
+
+<!-- Services -->
+<section id="services" class="max-w-6xl mx-auto px-6 py-16">
+  <h2 class="text-3xl font-bold mb-8 text-center">What we do</h2>
+  <div class="grid md:grid-cols-3 gap-8">
+    <div class="bg-white p-6 rounded-lg shadow">
+      <div class="text-[var(--light-red)] text-3xl mb-4">📊</div>
+      <h3 class="font-semibold text-xl mb-2">Lead Scraping</h3>
+      <p class="text-gray-700">AI-powered scraping that finds qualified prospects and structures them into a repeatable pipeline.</p>
     </div>
-  </header>
+    <div class="bg-white p-6 rounded-lg shadow">
+      <div class="text-[var(--light-red)] text-3xl mb-4">✉️</div>
+      <h3 class="font-semibold text-xl mb-2">Cold Outreach</h3>
+      <p class="text-gray-700">Plug-and-play sequences and subject lines designed for reply-rate optimization.</p>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow">
+      <div class="text-[var(--light-red)] text-3xl mb-4">⚙️</div>
+      <h3 class="font-semibold text-xl mb-2">Client Ops</h3>
+      <p class="text-gray-700">Onboarding, delivery templates, and reporting to scale client load without chaos.</p>
+    </div>
+  </div>
+</section>
 
-  <main>
-    <section class="hero">
-      <div class="container hero-inner">
-        <div class="hero-copy">
-          <h2>Adrenaline for your sales cycle</h2>
-          <p class="lead">We build AI-first lead scraping, outreach automation and delivery systems so agencies can win clients predictably.</p>
-          <div class="hero-cta">
-            <a class="btn btn-large" href="#cta" id="primary-cta">Get the Inbox Ignition Pack</a>
-            <a class="link-ghost" href="#about">Learn more</a>
-          </div>
-        </div>
-        <div class="hero-card" aria-hidden="true">
-          <div class="card-header">Inbox Ignition Pack</div>
-          <div class="card-body">
-            <p><strong>$79.99</strong> — 3–5 plug & play cold email templates, setup guide, subject lines & CTAs.</p>
-            <ul>
-              <li>Fast setup</li>
-              <li>Actionable templates</li>
-              <li>Delivered via email</li>
-            </ul>
-            <div class="price-cta">
-              <a class="btn" href="#cta">Get the Pack</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+<!-- Why DealRush -->
+<section id="why" class="max-w-6xl mx-auto px-6 py-16">
+  <h2 class="text-3xl font-bold mb-8 text-center">Why DealRush</h2>
+  <div class="grid md:grid-cols-3 gap-8 text-center">
+    <div class="space-y-2">
+      <h3 class="font-semibold text-xl">Built for agencies</h3>
+      <p class="text-gray-700">We design systems that fit agency workflows — not one-off hacks.</p>
+    </div>
+    <div class="space-y-2">
+      <h3 class="font-semibold text-xl">AI-first</h3>
+      <p class="text-gray-700">Automation reduces time-to-first-lead and removes manual scraping work.</p>
+    </div>
+    <div class="space-y-2">
+      <h3 class="font-semibold text-xl">Proven SOPs</h3>
+      <p class="text-gray-700">Templates and playbooks that make onboarding and delivery repeatable.</p>
+    </div>
+  </div>
+</section>
 
-    <section id="services" class="section services">
-      <div class="container">
-        <h3>What we do</h3>
-        <div class="grid">
-          <div class="card">
-            <h4>Lead Scraping</h4>
-            <p>AI-powered scraping that finds qualified prospects and structures them into a repeatable pipeline.</p>
-          </div>
-          <div class="card">
-            <h4>Cold Outreach</h4>
-            <p>Plug-and-play sequences and subject lines designed for reply-rate optimization.</p>
-          </div>
-          <div class="card">
-            <h4>Client Ops</h4>
-            <p>Onboarding, delivery templates, and reporting to scale client load without chaos.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+<!-- CTA -->
+<section id="cta" class="bg-white py-16">
+  <div class="max-w-3xl mx-auto text-center space-y-6 px-6">
+    <h2 class="text-3xl font-bold">Ready to ignite your inbox?</h2>
+    <p class="text-gray-700 text-lg">Get the Inbox Ignition Pack — a low-risk starter to launch your first outbound campaign.</p>
+    <div class="flex justify-center space-x-2">
+      <input type="email" placeholder="Your email" class="p-3 rounded border border-gray-300 w-64">
+      <button class="bg-[var(--light-red)] text-white px-6 py-3 rounded hover:bg-red-500 font-semibold">Get Pack</button>
+    </div>
+  </div>
+</section>
 
-    <section id="why" class="section why">
-      <div class="container">
-        <h3>Why DealRush</h3>
-        <div class="why-grid">
-          <div>
-            <h4>Built for agencies</h4>
-            <p>We design systems that fit agency workflows — not one-off hacks.</p>
-          </div>
-          <div>
-            <h4>AI-first</h4>
-            <p>Automation reduces time-to-first-lead and removes manual scraping work.</p>
-          </div>
-          <div>
-            <h4>Proven SOPs</h4>
-            <p>Templates and playbooks that make onboarding and delivery repeatable.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+<!-- Footer -->
+<footer class="bg-[var(--light-grey)] py-6 mt-16">
+  <div class="max-w-6xl mx-auto px-6 flex justify-between items-center text-gray-700 text-sm">
+    <div>© DealRush 2025</div>
+    <div class="space-x-4">
+      <a href="#services" class="hover:text-[var(--light-red)]">Services</a>
+      <a href="#cta" class="hover:text-[var(--light-red)]">Contact</a>
+    </div>
+  </div>
+</footer>
 
-    <section id="cta" class="section cta">
-      <div class="container cta-inner">
-        <div class="cta-copy">
-          <h3>Ready to ignite your inbox?</h3>
-          <p>Get the Inbox Ignition Pack — a low-risk starter to launch your first outbound campaign.</p>
-        </div>
-        <div class="cta-form" role="form" aria-label="Get the Inbox Ignition Pack">
-          <input id="email" type="email" placeholder="Your email" />
-          <button id="buyBtn" class="btn">Get the Pack</button>
-        </div>
-      </div>
-    </section>
-
-    <footer class="site-footer">
-      <div class="container footer-inner">
-        <div>© DealRush 2025</div>
-        <div class="footer-links">
-          <a href="#services">Services</a>
-          <a href="#cta">Contact</a>
-        </div>
-      </div>
-    </footer>
-
-  </main>
-
-  <div id="toast" class="toast" role="status" aria-live="polite"></div>
-
-  <script src="script.js"></script>
 </body>
 </html>
