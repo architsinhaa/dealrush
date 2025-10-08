@@ -60,12 +60,26 @@
       align-items: center;
     }
 
+    /* Hide some nav items on mobile */
     @media (max-width: 768px) {
+      nav a.hide-mobile {
+        display: none;
+      }
+
       .form-desktop {
         display: none;
       }
+
       .form-button {
         display: inline-block;
+      }
+
+      /* Move FREE! label for mobile */
+      .free-label {
+        top: -20px !important;
+        left: 60px !important;
+        transform: rotate(-8deg) translateX(5px) !important;
+        font-size: 1.8rem !important;
       }
     }
   </style>
@@ -78,9 +92,9 @@
     <div class="text-xl font-bold cursor-pointer" onclick="window.location.href='/dealrush'">DealRush</div>
     <nav class="space-x-4">
       <a href="#services" class="text-gray-700 hover:text-[var(--light-red)]">Services</a>
-      <a href="#why" class="text-gray-700 hover:text-[var(--light-red)]">Why</a>
+      <a href="#why" class="text-gray-700 hover:text-[var(--light-red)] hide-mobile">Why</a>
       <a href="#contact" class="text-gray-700 hover:text-[var(--light-red)]">Inbox Pack</a>
-      <a href="https://calendly.com/archit-dealrush/30min" target="_blank" class="text-gray-700 hover:text-[var(--light-red)]">Book a Meeting</a>
+      <a href="https://calendly.com/archit-dealrush/30min" target="_blank" class="text-gray-700 hover:text-[var(--light-red)] hide-mobile">Book a Meeting</a>
       <a id="cta" href="mailto:mgmt.dealrush@outlook.com" class="text-gray-700 hover:text-[var(--light-red)]">Contact</a>
     </nav>
   </header>
@@ -148,10 +162,10 @@
       <h2 style="font-size:2.5rem; font-weight:700; color:#222; position: relative; display: inline-block;">
         Get Your Inbox Ignition Pack for 
         <span style="position: relative; display: inline-block; margin-left: 6px;">
-        <span style="color:#ff6b6b; text-decoration: line-through; font-weight:600;">$79.99</span>
-        <span style="position: absolute; top: -45px; left: 12px; color:#ff3b3b; font-weight:1000; font-size:2.2rem; transform: rotate(-8deg);">
-      FREE!
-        </span>
+          <span style="color:#ff6b6b; text-decoration: line-through; font-weight:600;">$79.99</span>
+          <span class="free-label" style="position: absolute; top: -45px; left: 12px; color:#ff3b3b; font-weight:1000; font-size:2.2rem; transform: rotate(-8deg);">
+            FREE!
+          </span>
         </span>
       </h2>
 
