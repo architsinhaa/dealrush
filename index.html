@@ -9,65 +9,23 @@
     :root {
       --light-red: #ff6b6b;
       --light-grey: #f6f6f7;
-      --dark-bg: rgba(20, 20, 20, 0.6);
     }
 
-    body {
-      background: var(--light-grey);
-      color: #111;
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      padding: 0;
-      scroll-behavior: smooth;
+    .hover-btn {
+      transition: all 0.25s ease;
+    }
+    .hover-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4);
     }
 
-    /* ---------- HEADER ---------- */
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 60px;
-      background: var(--dark-bg);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      position: fixed;
-      width: 100%;
-      top: 0;
-      left: 0;
-      z-index: 100;
-      transition: background 0.3s ease, padding 0.3s ease;
+    .card-animate {
+      transition: all 0.3s ease;
+      transform: translateY(0);
     }
-
-    .logo-text {
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: #fff;
-      text-decoration: none;
-      letter-spacing: 0.5px;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-    }
-
-    .nav-links a {
-      margin-left: 32px;
-      color: #d3d3d3;
-      text-decoration: none;
-      font-size: 1rem;
-      transition: color 0.3s ease;
-    }
-
-    .nav-links a:hover {
-      color: #ffffff;
-    }
-
-    /* ---------- MAIN SECTIONS ---------- */
-    section {
-      padding: 100px 24px;
-      max-width: 1100px;
-      margin: 0 auto;
+    .card-animate:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
     }
 
     .fade-up {
@@ -75,74 +33,12 @@
       transform: translateY(30px);
       transition: all 0.6s ease-out;
     }
-
     .fade-up.visible {
       opacity: 1;
       transform: translateY(0);
     }
 
-    .card-animate {
-      transition: all 0.3s ease;
-      transform: translateY(0);
-    }
-
-    .card-animate:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-    }
-
-    /* ---------- HERO ---------- */
-    .hero {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding-top: 160px;
-    }
-
-    .hero h1 {
-      font-size: 2.8rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-
-    .hero p {
-      color: #555;
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-      max-width: 700px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .hero-buttons a {
-      background: var(--light-red);
-      color: #fff;
-      padding: 14px 28px;
-      border-radius: 10px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.25s ease;
-    }
-
-    .hero-buttons a:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 14px rgba(255, 107, 107, 0.4);
-    }
-
-    /* ---------- CONTACT FORM ---------- */
-    .form-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
+    /* Mobile form switch */
     .form-button {
       display: none;
       background-color: var(--light-red);
@@ -153,10 +49,15 @@
       font-weight: 600;
       transition: all 0.25s ease;
     }
-
     .form-button:hover {
       transform: scale(1.05);
       box-shadow: 0 6px 14px rgba(255, 107, 107, 0.4);
+    }
+
+    .form-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     @media (max-width: 768px) {
@@ -166,98 +67,83 @@
       .form-button {
         display: inline-block;
       }
-      .navbar {
-        padding: 16px 24px;
-      }
-      .hero h1 {
-        font-size: 2rem;
-      }
-    }
-
-    footer {
-      background: var(--light-grey);
-      color: #555;
-      text-align: center;
-      padding: 40px 0;
-      font-size: 0.9rem;
-    }
-
-    footer a {
-      color: #555;
-      text-decoration: none;
-      margin: 0 10px;
-      transition: color 0.25s ease;
-    }
-
-    footer a:hover {
-      color: var(--light-red);
     }
   </style>
 </head>
 
-<body>
+<body class="bg-[var(--light-grey)] text-gray-900 font-sans">
+
   <!-- Header -->
-  <header class="navbar">
-    <a href="#" class="logo-text">DealRush</a>
-    <nav class="nav-links">
-      <a href="#cta">Contact</a>
-      <a href="https://calendly.com/archit-dealrush/30min" target="_blank">Book a Meeting</a>
+  <header class="flex justify-between items-center p-6 max-w-6xl mx-auto">
+    <div class="text-xl font-bold cursor-pointer" onclick="window.location.href='/dealrush'">DealRush</div>
+    <nav class="space-x-4">
+      <a href="#services" class="text-gray-700 hover:text-[var(--light-red)]">Services</a>
+      <a href="#why" class="text-gray-700 hover:text-[var(--light-red)]">Why</a>
+      <a href="#contact" class="bg-[var(--light-red)] text-white px-4 py-2 rounded hover:bg-red-500 hover-btn">Inbox Pack</a>
+      <a href="https://calendly.com/archit-dealrush/30min" target="_blank" class="bg-white border border-[var(--light-red)] text-[var(--light-red)] px-4 py-2 rounded hover:bg-[var(--light-red)] hover:text-white hover-btn">Book a Meeting</a>
+      <a id="cta" href="mailto:mgmt.dealrush@outlook.com" class="text-gray-700 hover:text-[var(--light-red)]">Contact</a>
     </nav>
   </header>
 
   <!-- Hero -->
-  <section class="hero fade-up">
-    <h1>AI-powered sales systems for modern agencies</h1>
-    <p>We build AI-first lead scraping, outreach automation, and delivery systems so agencies can win clients predictably.</p>
-    <div class="hero-buttons">
-      <a href="#cta">Get Inbox Ignition Pack</a>
-      <a href="https://calendly.com/archit-dealrush/30min" target="_blank">Book a Meeting</a>
+  <section class="relative max-w-6xl mx-auto flex flex-col md:flex-row items-center px-6 py-16 fade-up">
+    <div class="flex-1 space-y-6 z-10">
+      <h1 class="text-4xl md:text-5xl font-bold">AI-powered sales systems for modern agencies</h1>
+      <p class="text-gray-700 text-lg md:text-xl">We build AI-first lead scraping, outreach automation and delivery systems so agencies can win clients predictably.</p>
+      <div class="flex space-x-4">
+        <a href="#contact" class="inline-block bg-[var(--light-red)] text-white px-6 py-3 rounded-lg hover:bg-red-500 font-semibold hover-btn">Get Inbox Ignition Pack</a>
+        <a href="https://calendly.com/archit-dealrush/30min" target="_blank" class="inline-block border border-[var(--light-red)] text-[var(--light-red)] px-6 py-3 rounded-lg font-semibold hover:bg-[var(--light-red)] hover:text-white hover-btn">Book a Meeting</a>
+      </div>
+    </div>
+    <div class="flex-1 mt-10 md:mt-0 relative">
+      <div class="absolute top-0 right-0 w-48 h-48 bg-[var(--light-red)] rounded-full opacity-20 -z-10"></div>
+      <div class="absolute bottom-0 left-10 w-64 h-64 bg-[var(--light-red)] rounded-full opacity-15 -z-10"></div>
     </div>
   </section>
 
   <!-- Services -->
-  <section id="services" class="fade-up">
-    <h2 class="text-3xl font-bold text-center mb-8">What We Do</h2>
-    <div class="grid md:grid-cols-3 gap-8 text-center">
+  <section id="services" class="max-w-6xl mx-auto px-6 py-16 text-center fade-up">
+    <h2 class="text-3xl font-bold mb-8">What we do</h2>
+    <div class="grid md:grid-cols-3 gap-8">
       <div class="bg-white p-6 rounded-lg shadow card-animate">
         <div class="text-[var(--light-red)] text-3xl mb-4">📊</div>
         <h3 class="font-semibold text-xl mb-2">Lead Scraping</h3>
-        <p>AI-powered scraping that finds qualified prospects and structures them into a repeatable pipeline.</p>
+        <p class="text-gray-700">AI-powered scraping that finds qualified prospects and structures them into a repeatable pipeline.</p>
       </div>
       <div class="bg-white p-6 rounded-lg shadow card-animate">
         <div class="text-[var(--light-red)] text-3xl mb-4">✉️</div>
         <h3 class="font-semibold text-xl mb-2">Cold Outreach</h3>
-        <p>Plug-and-play sequences and subject lines designed for reply-rate optimization.</p>
+        <p class="text-gray-700">Plug-and-play sequences and subject lines designed for reply-rate optimization.</p>
       </div>
       <div class="bg-white p-6 rounded-lg shadow card-animate">
         <div class="text-[var(--light-red)] text-3xl mb-4">⚙️</div>
         <h3 class="font-semibold text-xl mb-2">Client Ops</h3>
-        <p>Onboarding, delivery templates, and reporting to scale client load without chaos.</p>
+        <p class="text-gray-700">Onboarding, delivery templates, and reporting to scale client load without chaos.</p>
       </div>
     </div>
   </section>
 
   <!-- Why -->
-  <section id="why" class="fade-up">
+  <section id="why" class="max-w-6xl mx-auto px-6 py-16 fade-up">
     <h2 class="text-3xl font-bold mb-8 text-center">Why DealRush</h2>
     <div class="grid md:grid-cols-3 gap-8 text-center">
-      <div>
-        <h3 class="font-semibold text-xl">Built for Agencies</h3>
-        <p>We design systems that fit agency workflows — not one-off hacks.</p>
+      <div class="space-y-2">
+        <h3 class="font-semibold text-xl">Built for agencies</h3>
+        <p class="text-gray-700">We design systems that fit agency workflows — not one-off hacks.</p>
       </div>
-      <div>
+      <div class="space-y-2">
         <h3 class="font-semibold text-xl">AI-first</h3>
-        <p>Automation reduces time-to-first-lead and removes manual scraping work.</p>
+        <p class="text-gray-700">Automation reduces time-to-first-lead and removes manual scraping work.</p>
       </div>
-      <div>
+      <div class="space-y-2">
         <h3 class="font-semibold text-xl">Proven SOPs</h3>
-        <p>Templates and playbooks that make onboarding and delivery repeatable.</p>
+        <p class="text-gray-700">Templates and playbooks that make onboarding and delivery repeatable.</p>
       </div>
     </div>
   </section>
 
-  <!-- Contact / CTA -->
-  <section id="cta" class="fade-up" style="background-color:#f7f7f7; padding:80px 0;">
+  <!-- Form -->
+  <section id="contact" class="fade-up" style="background-color:#f7f7f7; padding:80px 0;">
     <div style="max-width:900px; margin:0 auto; text-align:center;">
       <h2 style="font-size:2.5rem; font-weight:700; color:#222;">Get Your Inbox Ignition Pack</h2>
       <p style="margin-top:15px; color:#555; font-size:1.1rem;">
@@ -274,17 +160,21 @@
         </iframe>
       </div>
 
-      <p style="margin-top:30px; color:#666;">Have a question? Email us at <a href="mailto:mgmt.dealrush@outlook.com" style="color:var(--light-red); font-weight:600;">mgmt.dealrush@outlook.com</a> and we’ll reply within 48 hours.</p>
+      <p style="margin-top: 30px; color:#666; font-size:0.95rem;">
+        Or email us directly at 
+        <a href="mailto:mgmt.dealrush@outlook.com" style="color:#ff6b6b; font-weight:600;">mgmt.dealrush@outlook.com</a> — we typically reply within 48 hours.
+      </p>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer>
-    <div>© DealRush 2025</div>
-    <div style="margin-top:10px;">
-      <a href="#services">Services</a> |
-      <a href="#cta">Contact</a> |
-      <a href="https://calendly.com/archit-dealrush/30min" target="_blank">Book a Meeting</a>
+  <footer class="bg-[var(--light-grey)] py-6 mt-16">
+    <div class="max-w-6xl mx-auto px-6 flex justify-between items-center text-gray-700 text-sm">
+      <div>© DealRush 2025</div>
+      <div class="space-x-4">
+        <a href="#services" class="hover:text-[var(--light-red)]">Services</a>
+        <a id="cta" href="mailto:mgmt.dealrush@outlook.com" class="hover:text-[var(--light-red)]">Contact</a>
+      </div>
     </div>
   </footer>
 
@@ -297,18 +187,6 @@
       });
     }, { threshold: 0.2 });
     fadeEls.forEach(el => obs.observe(el));
-
-    // Scroll-responsive navbar
-    window.addEventListener('scroll', () => {
-      const navbar = document.querySelector('.navbar');
-      if (window.scrollY > 20) {
-        navbar.style.background = 'rgba(20, 20, 20, 0.85)';
-        navbar.style.padding = '12px 60px';
-      } else {
-        navbar.style.background = 'rgba(20, 20, 20, 0.6)';
-        navbar.style.padding = '20px 60px';
-      }
-    });
   </script>
 </body>
 </html>
