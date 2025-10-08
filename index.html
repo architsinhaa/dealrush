@@ -20,7 +20,7 @@
   <nav class="space-x-4">
     <a href="#services" class="text-gray-700 hover:text-[var(--light-red)]">Services</a>
     <a href="#why" class="text-gray-700 hover:text-[var(--light-red)]">Why</a>
-    <a href="#inbox-pack" class="bg-[var(--light-red)] text-white px-4 py-2 rounded hover:bg-red-500">Inbox Pack</a>
+    <a href="#contack" class="bg-[var(--light-red)] text-white px-4 py-2 rounded hover:bg-red-500">Inbox Pack</a>
   </nav>
 </header>
 
@@ -89,13 +89,36 @@
     <p style="margin-top: 15px; color: #555; font-size: 1.1rem;">
       Fill out this quick form to get your personalized cold email system — tailored to your ideal client profile.
     </p>
-    <div style="margin-top: 50px; background: white; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); padding: 40px;">
-      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdZPqSsBaTydgYJGyk2EOCTkv5JQNoAuD_dwdBAP8IlG-TQAw/viewform?embedded=true"
-        width="100%" height="400" frameborder="0" marginheight="0" marginwidth="0"
-        style="border-radius: 12px; background: #fff;">Loading…</iframe>
+
+    <div id="form-container" style="margin-top: 50px;">
+      <!-- The embedded form (for desktop) -->
+      <div id="desktop-form" style="display: none;">
+        <div style="background: white; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); padding: 40px;">
+          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdZPqSsBaTydgYJGyk2EOCTkv5JQNoAuD_dwdBAP8IlG-TQAw/viewform?embedded=true"
+            width="100%" height="900" frameborder="0" marginheight="0" marginwidth="0"
+            style="border-radius: 12px; background: #fff;">Loading…</iframe>
+        </div>
+      </div>
+
+      <!-- The button (for mobile) -->
+      <div id="mobile-button" style="display: none;">
+        <a href="https://forms.gle/gTxkT4xKB4LVjWSx9" target="_blank" 
+           style="display: inline-block; background-color: #e63946; color: white; padding: 16px 32px; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 1.1rem;">
+          Open Form
+        </a>
+      </div>
     </div>
   </div>
 </section>
+
+<script>
+  // Simple device check
+  if (window.innerWidth <= 768) {
+    document.getElementById("mobile-button").style.display = "block";
+  } else {
+    document.getElementById("desktop-form").style.display = "block";
+  }
+</script>
 
 
 <!-- Footer -->
