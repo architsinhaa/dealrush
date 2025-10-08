@@ -11,7 +11,6 @@
       --light-grey: #f6f6f7;
     }
 
-    /* Hover + Motion Animations */
     .hover-btn {
       transition: all 0.25s ease;
     }
@@ -29,7 +28,6 @@
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
     }
 
-    /* Scroll fade-up */
     .fade-up {
       opacity: 0;
       transform: translateY(30px);
@@ -56,6 +54,12 @@
       box-shadow: 0 6px 14px rgba(255, 107, 107, 0.4);
     }
 
+    .form-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
     @media (max-width: 768px) {
       .form-desktop {
         display: none;
@@ -71,7 +75,7 @@
 
   <!-- Header -->
   <header class="flex justify-between items-center p-6 max-w-6xl mx-auto">
-    <div class="text-xl font-bold cursor-pointer" onclick="scrollToTop()">DealRush</div>
+    <div class="text-xl font-bold cursor-pointer" onclick="window.location.href='/'">DealRush</div>
     <nav class="space-x-4">
       <a href="#services" class="text-gray-700 hover:text-[var(--light-red)]">Services</a>
       <a href="#why" class="text-gray-700 hover:text-[var(--light-red)]">Why</a>
@@ -143,9 +147,12 @@
 
       <div class="form-container" style="margin-top:50px;">
         <a href="https://forms.gle/gTxkT4xKB4LVjWSx9" class="form-button" target="_blank">Open Form</a>
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdZPqSsBaTydgYJGyk2EOCTkv5JQNoAuD_dwdBAP8IlG-TQAw/viewform?embedded=true"
-          width="640" height="800" frameborder="0" marginheight="0" marginwidth="0" class="form-desktop"
-          style="border-radius:16px; background:#fff;">Loading…</iframe>
+        <iframe 
+          src="https://docs.google.com/forms/d/e/1FAIpQLSdZPqSsBaTydgYJGyk2EOCTkv5JQNoAuD_dwdBAP8IlG-TQAw/viewform?embedded=true"
+          width="640" height="800" frameborder="0" marginheight="0" marginwidth="0" 
+          class="form-desktop" style="border-radius:16px; background:#fff;">
+          Loading…
+        </iframe>
       </div>
     </div>
   </section>
@@ -162,11 +169,12 @@
   </footer>
 
   <script>
+    // Smooth scroll top (for fallback)
     function scrollToTop() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Fade-up animation on scroll
+    // Fade-up animation
     const fadeEls = document.querySelectorAll('.fade-up');
     const obs = new IntersectionObserver(entries => {
       entries.forEach(e => {
