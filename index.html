@@ -1,136 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DealRush — AI-powered sales systems for modern agencies</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<style>
-  :root {
-    --light-red: #FF6B6B;
-    --light-grey: #F6F6F7;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no" />
+  <title>DealRush — AI-powered sales systems for modern agencies</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --light-red: #ff6b6b;
+      --light-grey: #f6f6f7;
+    }
+
+    /* Hover + Motion Animations */
+    .hover-btn {
+      transition: all 0.25s ease;
+    }
+    .hover-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4);
+    }
+
+    .card-animate {
+      transition: all 0.3s ease;
+      transform: translateY(0);
+    }
+    .card-animate:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Scroll fade-up */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease-out;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Mobile form switch */
+    .form-button {
+      display: none;
+      background-color: var(--light-red);
+      color: white;
+      padding: 14px 28px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.25s ease;
+    }
+    .form-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 14px rgba(255, 107, 107, 0.4);
+    }
+
+    @media (max-width: 768px) {
+      .form-desktop {
+        display: none;
+      }
+      .form-button {
+        display: inline-block;
+      }
+    }
+  </style>
 </head>
+
 <body class="bg-[var(--light-grey)] text-gray-900 font-sans">
 
-<!-- Header -->
-<header class="flex justify-between items-center p-6 max-w-6xl mx-auto">
-  <div class="text-xl font-bold">DealRush</div>
-  <nav class="space-x-4">
-    <a href="#services" class="text-gray-700 hover:text-[var(--light-red)]">Services</a>
-    <a href="#why" class="text-gray-700 hover:text-[var(--light-red)]">Why</a>
-    <a href="#contact" class="bg-[var(--light-red)] text-white px-4 py-2 rounded hover:bg-red-500">Inbox Pack</a>
-  </nav>
-</header>
+  <!-- Header -->
+  <header class="flex justify-between items-center p-6 max-w-6xl mx-auto">
+    <div class="text-xl font-bold cursor-pointer" onclick="scrollToTop()">DealRush</div>
+    <nav class="space-x-4">
+      <a href="#services" class="text-gray-700 hover:text-[var(--light-red)]">Services</a>
+      <a href="#why" class="text-gray-700 hover:text-[var(--light-red)]">Why</a>
+      <a href="#contact" class="bg-[var(--light-red)] text-white px-4 py-2 rounded hover:bg-red-500 hover-btn">Inbox Pack</a>
+    </nav>
+  </header>
 
-<!-- Hero -->
-<!-- Hero -->
-<section class="relative max-w-6xl mx-auto flex flex-col md:flex-row items-center px-6 py-16">
-  <div class="flex-1 space-y-6 z-10">
-    <h1 class="text-4xl md:text-5xl font-bold">AI-powered sales systems for modern agencies</h1>
-    <p class="text-gray-700 text-lg md:text-xl">We build AI-first lead scraping, outreach automation and delivery systems so agencies can win clients predictably.</p>
-    <a href="#contact" class="inline-block bg-[var(--light-red)] text-white px-6 py-3 rounded-lg hover:bg-red-500 font-semibold">Get Inbox Ignition Pack</a>
-  </div>
-  <div class="flex-1 mt-10 md:mt-0 relative">
-    <!-- Abstract blobs -->
-    <div class="absolute top-0 right-0 w-48 h-48 bg-[var(--light-red)] rounded-full opacity-20 -z-10"></div>
-    <div class="absolute bottom-0 left-10 w-64 h-64 bg-[var(--light-red)] rounded-full opacity-15 -z-10"></div>
-  </div>
-</section>
-
-
-<!-- Services -->
-<section id="services" class="max-w-6xl mx-auto px-6 py-16">
-  <h2 class="text-3xl font-bold mb-8 text-center">What we do</h2>
-  <div class="grid md:grid-cols-3 gap-8">
-    <div class="bg-white p-6 rounded-lg shadow">
-      <div class="text-[var(--light-red)] text-3xl mb-4">📊</div>
-      <h3 class="font-semibold text-xl mb-2">Lead Scraping</h3>
-      <p class="text-gray-700">AI-powered scraping that finds qualified prospects and structures them into a repeatable pipeline.</p>
+  <!-- Hero -->
+  <section class="relative max-w-6xl mx-auto flex flex-col md:flex-row items-center px-6 py-16 fade-up">
+    <div class="flex-1 space-y-6 z-10">
+      <h1 class="text-4xl md:text-5xl font-bold">AI-powered sales systems for modern agencies</h1>
+      <p class="text-gray-700 text-lg md:text-xl">We build AI-first lead scraping, outreach automation and delivery systems so agencies can win clients predictably.</p>
+      <a href="#contact" class="inline-block bg-[var(--light-red)] text-white px-6 py-3 rounded-lg hover:bg-red-500 font-semibold hover-btn">Get Inbox Ignition Pack</a>
     </div>
-    <div class="bg-white p-6 rounded-lg shadow">
-      <div class="text-[var(--light-red)] text-3xl mb-4">✉️</div>
-      <h3 class="font-semibold text-xl mb-2">Cold Outreach</h3>
-      <p class="text-gray-700">Plug-and-play sequences and subject lines designed for reply-rate optimization.</p>
+    <div class="flex-1 mt-10 md:mt-0 relative">
+      <div class="absolute top-0 right-0 w-48 h-48 bg-[var(--light-red)] rounded-full opacity-20 -z-10"></div>
+      <div class="absolute bottom-0 left-10 w-64 h-64 bg-[var(--light-red)] rounded-full opacity-15 -z-10"></div>
     </div>
-    <div class="bg-white p-6 rounded-lg shadow">
-      <div class="text-[var(--light-red)] text-3xl mb-4">⚙️</div>
-      <h3 class="font-semibold text-xl mb-2">Client Ops</h3>
-      <p class="text-gray-700">Onboarding, delivery templates, and reporting to scale client load without chaos.</p>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- Why DealRush -->
-<section id="why" class="max-w-6xl mx-auto px-6 py-16">
-  <h2 class="text-3xl font-bold mb-8 text-center">Why DealRush</h2>
-  <div class="grid md:grid-cols-3 gap-8 text-center">
-    <div class="space-y-2">
-      <h3 class="font-semibold text-xl">Built for agencies</h3>
-      <p class="text-gray-700">We design systems that fit agency workflows — not one-off hacks.</p>
-    </div>
-    <div class="space-y-2">
-      <h3 class="font-semibold text-xl">AI-first</h3>
-      <p class="text-gray-700">Automation reduces time-to-first-lead and removes manual scraping work.</p>
-    </div>
-    <div class="space-y-2">
-      <h3 class="font-semibold text-xl">Proven SOPs</h3>
-      <p class="text-gray-700">Templates and playbooks that make onboarding and delivery repeatable.</p>
-    </div>
-  </div>
-</section>
-
-<!--- Form -->
-
-<section id="contact" style="background-color: #f7f7f7; padding: 80px 0;">
-  <div style="max-width: 900px; margin: 0 auto; text-align: center;">
-    <h2 style="font-size: 2.5rem; font-weight: 700; color: #222;">Get Your Inbox Ignition Pack</h2>
-    <p style="margin-top: 15px; color: #555; font-size: 1.1rem;">
-      Fill out this quick form to get your personalized cold email system — tailored to your ideal client profile.
-    </p>
-
-    <div id="form-container" style="margin-top: 50px;">
-      <!-- The embedded form (for desktop) -->
-      <div id="desktop-form" style="display: none;">
-        <div style="background: white; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); padding: 40px;">
-          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdZPqSsBaTydgYJGyk2EOCTkv5JQNoAuD_dwdBAP8IlG-TQAw/viewform?embedded=true"
-            width="100%" height="400" frameborder="0" marginheight="0" marginwidth="0"
-            style="border-radius: 12px; background: #fff;">Loading…</iframe>
-        </div>
+  <!-- Services -->
+  <section id="services" class="max-w-6xl mx-auto px-6 py-16 text-center fade-up">
+    <h2 class="text-3xl font-bold mb-8">What we do</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="bg-white p-6 rounded-lg shadow card-animate">
+        <div class="text-[var(--light-red)] text-3xl mb-4">📊</div>
+        <h3 class="font-semibold text-xl mb-2">Lead Scraping</h3>
+        <p class="text-gray-700">AI-powered scraping that finds qualified prospects and structures them into a repeatable pipeline.</p>
       </div>
-
-      <!-- The button (for mobile) -->
-      <div id="mobile-button" style="display: none;">
-        <a href="https://forms.gle/gTxkT4xKB4LVjWSx9" target="_blank" 
-           style="display: inline-block; background-color: #e63946; color: white; padding: 16px 32px; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 1.1rem;">
-          Open Form
-        </a>
+      <div class="bg-white p-6 rounded-lg shadow card-animate">
+        <div class="text-[var(--light-red)] text-3xl mb-4">✉️</div>
+        <h3 class="font-semibold text-xl mb-2">Cold Outreach</h3>
+        <p class="text-gray-700">Plug-and-play sequences and subject lines designed for reply-rate optimization.</p>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow card-animate">
+        <div class="text-[var(--light-red)] text-3xl mb-4">⚙️</div>
+        <h3 class="font-semibold text-xl mb-2">Client Ops</h3>
+        <p class="text-gray-700">Onboarding, delivery templates, and reporting to scale client load without chaos.</p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<script>
-  // Simple device check
-  if (window.innerWidth <= 768) {
-    document.getElementById("mobile-button").style.display = "block";
-  } else {
-    document.getElementById("desktop-form").style.display = "block";
-  }
-</script>
-
-
-<!-- Footer -->
-<footer class="bg-[var(--light-grey)] py-6 mt-16">
-  <div class="max-w-6xl mx-auto px-6 flex justify-between items-center text-gray-700 text-sm">
-    <div>© DealRush 2025</div>
-    <div class="space-x-4">
-      <a href="#services" class="hover:text-[var(--light-red)]">Services</a>
-      <a href="#cta" class="hover:text-[var(--light-red)]">Contact</a>
+  <!-- Why -->
+  <section id="why" class="max-w-6xl mx-auto px-6 py-16 fade-up">
+    <h2 class="text-3xl font-bold mb-8 text-center">Why DealRush</h2>
+    <div class="grid md:grid-cols-3 gap-8 text-center">
+      <div class="space-y-2">
+        <h3 class="font-semibold text-xl">Built for agencies</h3>
+        <p class="text-gray-700">We design systems that fit agency workflows — not one-off hacks.</p>
+      </div>
+      <div class="space-y-2">
+        <h3 class="font-semibold text-xl">AI-first</h3>
+        <p class="text-gray-700">Automation reduces time-to-first-lead and removes manual scraping work.</p>
+      </div>
+      <div class="space-y-2">
+        <h3 class="font-semibold text-xl">Proven SOPs</h3>
+        <p class="text-gray-700">Templates and playbooks that make onboarding and delivery repeatable.</p>
+      </div>
     </div>
-  </div>
-</footer>
+  </section>
 
+  <!-- Form -->
+  <section id="contact" class="fade-up" style="background-color:#f7f7f7; padding:80px 0;">
+    <div style="max-width:900px; margin:0 auto; text-align:center;">
+      <h2 style="font-size:2.5rem; font-weight:700; color:#222;">Get Your Inbox Ignition Pack</h2>
+      <p style="margin-top:15px; color:#555; font-size:1.1rem;">
+        Fill out this quick form to get your personalized cold email system — tailored to your ideal client profile.
+      </p>
+
+      <div class="form-container" style="margin-top:50px;">
+        <a href="https://forms.gle/gTxkT4xKB4LVjWSx9" class="form-button" target="_blank">Open Form</a>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdZPqSsBaTydgYJGyk2EOCTkv5JQNoAuD_dwdBAP8IlG-TQAw/viewform?embedded=true"
+          width="640" height="800" frameborder="0" marginheight="0" marginwidth="0" class="form-desktop"
+          style="border-radius:16px; background:#fff;">Loading…</iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-[var(--light-grey)] py-6 mt-16">
+    <div class="max-w-6xl mx-auto px-6 flex justify-between items-center text-gray-700 text-sm">
+      <div>© DealRush 2025</div>
+      <div class="space-x-4">
+        <a href="#services" class="hover:text-[var(--light-red)]">Services</a>
+        <a href="#contact" class="hover:text-[var(--light-red)]">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Fade-up animation on scroll
+    const fadeEls = document.querySelectorAll('.fade-up');
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('visible');
+      });
+    }, { threshold: 0.2 });
+    fadeEls.forEach(el => obs.observe(el));
+  </script>
 </body>
 </html>
