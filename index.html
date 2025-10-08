@@ -80,32 +80,26 @@
       <a href="#services" class="text-gray-700 hover:text-[var(--light-red)]">Services</a>
       <a href="#why" class="text-gray-700 hover:text-[var(--light-red)]">Why</a>
       <a href="#contact" class="bg-[var(--light-red)] text-white px-4 py-2 rounded hover:bg-red-500 hover-btn">Inbox Pack</a>
+      <a href="https://calendly.com/archit-dealrush/30min" target="_blank" class="bg-white border border-[var(--light-red)] text-[var(--light-red)] px-4 py-2 rounded hover:bg-[var(--light-red)] hover:text-white hover-btn">Book a Meeting</a>
+      <a id="cta" href="mailto:mgmt.dealrush@outlook.com" class="text-gray-700 hover:text-[var(--light-red)]">Contact</a>
     </nav>
   </header>
 
   <!-- Hero -->
-<section class="relative max-w-6xl mx-auto flex flex-col md:flex-row items-center px-6 py-16 fade-up">
-  <div class="flex-1 space-y-6 z-10">
-    <h1 class="text-4xl md:text-5xl font-bold">AI-powered sales systems for modern agencies</h1>
-    <p class="text-gray-700 text-lg md:text-xl">
-      We build AI-first lead scraping, outreach automation and delivery systems so agencies can win clients predictably.
-    </p>
-    <div class="flex flex-wrap gap-4">
-    <a href="#contact" class="bg-[var(--light-red)] text-white px-4 py-2 rounded hover:bg-red-500 hover-btn">Inbox Pack</a>
-    <a id="cta" href="mailto:mgmt.dealrush@outlook.com" class="text-gray-700 hover:text-[var(--light-red)]">Contact</a>
-      <a href="https://calendly.com/archit-dealrush/30min" target="_blank" 
-         class="inline-block bg-gray-900 text-white px-6 py-3 rounded-lg font-semibold hover-btn"
-         style="transition: all 0.25s ease;">
-        Book a Meeting
-      </a>
+  <section class="relative max-w-6xl mx-auto flex flex-col md:flex-row items-center px-6 py-16 fade-up">
+    <div class="flex-1 space-y-6 z-10">
+      <h1 class="text-4xl md:text-5xl font-bold">AI-powered sales systems for modern agencies</h1>
+      <p class="text-gray-700 text-lg md:text-xl">We build AI-first lead scraping, outreach automation and delivery systems so agencies can win clients predictably.</p>
+      <div class="flex space-x-4">
+        <a href="#contact" class="inline-block bg-[var(--light-red)] text-white px-6 py-3 rounded-lg hover:bg-red-500 font-semibold hover-btn">Get Inbox Ignition Pack</a>
+        <a href="https://calendly.com/archit-dealrush/30min" target="_blank" class="inline-block border border-[var(--light-red)] text-[var(--light-red)] px-6 py-3 rounded-lg font-semibold hover:bg-[var(--light-red)] hover:text-white hover-btn">Book a Meeting</a>
+      </div>
     </div>
-  </div>
-  <div class="flex-1 mt-10 md:mt-0 relative">
-    <div class="absolute top-0 right-0 w-48 h-48 bg-[var(--light-red)] rounded-full opacity-20 -z-10"></div>
-    <div class="absolute bottom-0 left-10 w-64 h-64 bg-[var(--light-red)] rounded-full opacity-15 -z-10"></div>
-  </div>
-</section>
-
+    <div class="flex-1 mt-10 md:mt-0 relative">
+      <div class="absolute top-0 right-0 w-48 h-48 bg-[var(--light-red)] rounded-full opacity-20 -z-10"></div>
+      <div class="absolute bottom-0 left-10 w-64 h-64 bg-[var(--light-red)] rounded-full opacity-15 -z-10"></div>
+    </div>
+  </section>
 
   <!-- Services -->
   <section id="services" class="max-w-6xl mx-auto px-6 py-16 text-center fade-up">
@@ -148,7 +142,7 @@
     </div>
   </section>
 
-  <!-- Contact -->
+  <!-- Form -->
   <section id="contact" class="fade-up" style="background-color:#f7f7f7; padding:80px 0;">
     <div style="max-width:900px; margin:0 auto; text-align:center;">
       <h2 style="font-size:2.5rem; font-weight:700; color:#222;">Get Your Inbox Ignition Pack</h2>
@@ -164,11 +158,12 @@
           class="form-desktop" style="border-radius:16px; background:#fff;">
           Loading…
         </iframe>
-        <p style="margin-top: 30px; color:#666; font-size:0.95rem;">
-          Or, email us directly at 
-          <a href="mailto:mgmt.dealrush@outlook.com" style="color:#ff6b6b; font-weight:600;">mgmt.dealrush@outlook.com</a> — we typically reply within 48 hours.
-        </p>
       </div>
+
+      <p style="margin-top: 30px; color:#666; font-size:0.95rem;">
+        Or email us directly at 
+        <a href="mailto:mgmt.dealrush@outlook.com" style="color:#ff6b6b; font-weight:600;">mgmt.dealrush@outlook.com</a> — we typically reply within 48 hours.
+      </p>
     </div>
   </section>
 
@@ -184,11 +179,6 @@
   </footer>
 
   <script>
-    // Smooth scroll top (for fallback)
-    function scrollToTop() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
     // Fade-up animation
     const fadeEls = document.querySelectorAll('.fade-up');
     const obs = new IntersectionObserver(entries => {
