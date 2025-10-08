@@ -11,6 +11,53 @@
       --light-grey: #f6f6f7;
     }
 
+    /* ---------- GLOBAL ---------- */
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      background-color: var(--light-grey);
+      color: #222;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* ---------- HEADER ---------- */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 50;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
+      background: rgba(20, 20, 20, 0.6);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: background 0.3s ease, padding 0.3s ease;
+    }
+
+    .logo-text {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+    }
+
+    nav a {
+      margin-left: 32px;
+      color: #d3d3d3;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #fff;
+    }
+
+    /* ---------- HERO ---------- */
     .hover-btn {
       transition: all 0.25s ease;
     }
@@ -38,7 +85,7 @@
       transform: translateY(0);
     }
 
-    /* Mobile form switch */
+    /* ---------- FORM ---------- */
     .form-button {
       display: none;
       background-color: var(--light-red);
@@ -53,7 +100,6 @@
       transform: scale(1.05);
       box-shadow: 0 6px 14px rgba(255, 107, 107, 0.4);
     }
-
     .form-container {
       display: flex;
       justify-content: center;
@@ -61,6 +107,13 @@
     }
 
     @media (max-width: 768px) {
+      header {
+        padding: 16px 24px;
+      }
+      nav a {
+        margin-left: 16px;
+        font-size: 0.95rem;
+      }
       .form-desktop {
         display: none;
       }
@@ -71,27 +124,23 @@
   </style>
 </head>
 
-<body class="bg-[var(--light-grey)] text-gray-900 font-sans">
-
+<body>
   <!-- Header -->
-  <header class="flex justify-between items-center p-6 max-w-6xl mx-auto">
-    <div class="text-xl font-bold cursor-pointer" onclick="window.location.href='/dealrush'">DealRush</div>
-    <nav class="space-x-4">
-      <a href="#services" class="text-gray-700 hover:text-[var(--light-red)]">Services</a>
-      <a href="#why" class="text-gray-700 hover:text-[var(--light-red)]">Why</a>
-      <a href="#contact" class="bg-[var(--light-red)] text-white px-4 py-2 rounded hover:bg-red-500 hover-btn">Inbox Pack</a>
-      <a href="https://calendly.com/archit-dealrush/30min" target="_blank" class="bg-white border border-[var(--light-red)] text-[var(--light-red)] px-4 py-2 rounded hover:bg-[var(--light-red)] hover:text-white hover-btn">Book a Meeting</a>
-      <a id="cta" href="mailto:mgmt.dealrush@outlook.com" class="text-gray-700 hover:text-[var(--light-red)]">Contact</a>
+  <header>
+    <a href="#top" class="logo-text">DealRush</a>
+    <nav>
+      <a href="#cta">Contact</a>
+      <a href="https://calendly.com/archit-dealrush/30min" target="_blank">Book a Meeting</a>
     </nav>
   </header>
 
   <!-- Hero -->
-  <section class="relative max-w-6xl mx-auto flex flex-col md:flex-row items-center px-6 py-16 fade-up">
+  <section id="top" class="relative max-w-6xl mx-auto flex flex-col md:flex-row items-center px-6 py-32 fade-up">
     <div class="flex-1 space-y-6 z-10">
       <h1 class="text-4xl md:text-5xl font-bold">AI-powered sales systems for modern agencies</h1>
       <p class="text-gray-700 text-lg md:text-xl">We build AI-first lead scraping, outreach automation and delivery systems so agencies can win clients predictably.</p>
-      <div class="flex space-x-4">
-        <a href="#contact" class="inline-block bg-[var(--light-red)] text-white px-6 py-3 rounded-lg hover:bg-red-500 font-semibold hover-btn">Get Inbox Ignition Pack</a>
+      <div class="flex flex-wrap gap-4">
+        <a href="#cta" class="inline-block bg-[var(--light-red)] text-white px-6 py-3 rounded-lg font-semibold hover-btn">Get Inbox Ignition Pack</a>
         <a href="https://calendly.com/archit-dealrush/30min" target="_blank" class="inline-block border border-[var(--light-red)] text-[var(--light-red)] px-6 py-3 rounded-lg font-semibold hover:bg-[var(--light-red)] hover:text-white hover-btn">Book a Meeting</a>
       </div>
     </div>
@@ -142,8 +191,8 @@
     </div>
   </section>
 
-  <!-- Form -->
-  <section id="contact" class="fade-up" style="background-color:#f7f7f7; padding:80px 0;">
+  <!-- CTA Section -->
+  <section id="cta" class="fade-up" style="background-color:#f7f7f7; padding:80px 0;">
     <div style="max-width:900px; margin:0 auto; text-align:center;">
       <h2 style="font-size:2.5rem; font-weight:700; color:#222;">Get Your Inbox Ignition Pack</h2>
       <p style="margin-top:15px; color:#555; font-size:1.1rem;">
@@ -160,10 +209,9 @@
         </iframe>
       </div>
 
-      <p style="margin-top: 30px; color:#666; font-size:0.95rem;">
-        Or email us directly at 
-        <a href="mailto:mgmt.dealrush@outlook.com" style="color:#ff6b6b; font-weight:600;">mgmt.dealrush@outlook.com</a> — we typically reply within 48 hours.
-      </p>
+      <div style="margin-top:40px; color:#555;">
+        <p>For general inquiries, email us at <strong>mgmt.dealrush@outlook.com</strong>. We usually reply within 48 hours.</p>
+      </div>
     </div>
   </section>
 
@@ -173,7 +221,7 @@
       <div>© DealRush 2025</div>
       <div class="space-x-4">
         <a href="#services" class="hover:text-[var(--light-red)]">Services</a>
-        <a id="cta" href="mailto:mgmt.dealrush@outlook.com" class="hover:text-[var(--light-red)]">Contact</a>
+        <a href="#cta" class="hover:text-[var(--light-red)]">Contact</a>
       </div>
     </div>
   </footer>
@@ -187,6 +235,24 @@
       });
     }, { threshold: 0.2 });
     fadeEls.forEach(el => obs.observe(el));
+
+    // Scroll shrink header
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('header');
+      if (window.scrollY > 20) {
+        header.style.background = 'rgba(20, 20, 20, 0.85)';
+        header.style.padding = '12px 60px';
+      } else {
+        header.style.background = 'rgba(20, 20, 20, 0.6)';
+        header.style.padding = '20px 60px';
+      }
+    });
+
+    // Scroll to top when clicking logo
+    document.querySelector('.logo-text').addEventListener('click', e => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
   </script>
 </body>
 </html>
