@@ -203,6 +203,48 @@
     </div>
   </footer>
 
+  <!-- Cookie Consent Banner -->
+<div id="cookie-banner" style="
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #111;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  display: none;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  z-index: 9999;
+">
+  <span>We use cookies to improve your experience. By continuing, you agree to our <a href="privacy.html" style="color:#ff3b3b;">Privacy Policy</a>.</span>
+  <button id="accept-cookies" style="
+    background: #ff3b3b;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 6px 10px;
+    cursor: pointer;
+    font-weight: bold;
+  ">Accept</button>
+</div>
+
+<script>
+  // Check if user already accepted cookies
+  if (!localStorage.getItem('cookiesAccepted')) {
+    document.getElementById('cookie-banner').style.display = 'flex';
+  }
+
+  document.getElementById('accept-cookies').addEventListener('click', () => {
+    localStorage.setItem('cookiesAccepted', 'true');
+    document.getElementById('cookie-banner').style.display = 'none';
+  });
+</script>
+
+
   <script>
     // Fade-up animation
     const fadeEls = document.querySelectorAll('.fade-up');
