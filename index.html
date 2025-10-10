@@ -116,27 +116,78 @@
     </div>
   </section>
 
-  <!-- Services -->
-  <section id="services" class="max-w-6xl mx-auto px-6 py-16 text-center fade-up">
-    <h2 class="text-3xl font-bold mb-8">What we do</h2>
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="bg-white p-6 rounded-lg shadow card-animate">
-        <div class="text-[var(--light-red)] text-3xl mb-4">📊</div>
-        <h3 class="font-semibold text-xl mb-2">Lead Scraping</h3>
-        <p class="text-gray-700">AI-powered scraping that finds qualified prospects and structures them into a repeatable pipeline.</p>
-      </div>
-      <div class="bg-white p-6 rounded-lg shadow card-animate">
-        <div class="text-[var(--light-red)] text-3xl mb-4">✉️</div>
-        <h3 class="font-semibold text-xl mb-2">Cold Outreach</h3>
-        <p class="text-gray-700">Plug-and-play sequences and subject lines designed for reply-rate optimization.</p>
-      </div>
-      <div class="bg-white p-6 rounded-lg shadow card-animate">
-        <div class="text-[var(--light-red)] text-3xl mb-4">⚙️</div>
-        <h3 class="font-semibold text-xl mb-2">Client Ops</h3>
-        <p class="text-gray-700">Onboarding, delivery templates, and reporting to scale client load without chaos.</p>
+<!-- Services -->
+<section id="services" class="max-w-6xl mx-auto px-6 py-16 text-center fade-up">
+  <h2 class="text-3xl font-bold mb-8">What We Do</h2>
+
+  <div class="grid md:grid-cols-3 gap-8">
+    <!-- Lead Scraping -->
+    <div class="bg-white p-6 rounded-lg shadow card-animate cursor-pointer transition-all duration-300" onclick="toggleService(this)">
+      <div class="text-[var(--light-red)] text-3xl mb-4">📊</div>
+      <h3 class="font-semibold text-xl mb-2">Lead Scraping</h3>
+      <p class="text-gray-700 summary">AI-powered scraping that finds qualified prospects and structures them into a repeatable pipeline.</p>
+      <div class="details hidden mt-4 text-left text-gray-700">
+        <p>
+          Imagine you’re trying to sell lemonade — but instead of shouting to random people, we find 
+          the *exact ones* who love lemonade and live nearby. Our system uses AI to look through 
+          thousands of potential buyers, pick the best ones, and give you their info neatly organized 
+          in a list. No guessing, no wasting time — just your ideal customers, ready to reach out to.
+        </p>
       </div>
     </div>
-  </section>
+
+    <!-- Cold Outreach -->
+    <div class="bg-white p-6 rounded-lg shadow card-animate cursor-pointer transition-all duration-300" onclick="toggleService(this)">
+      <div class="text-[var(--light-red)] text-3xl mb-4">✉️</div>
+      <h3 class="font-semibold text-xl mb-2">Cold Outreach</h3>
+      <p class="text-gray-700 summary">Plug-and-play sequences and subject lines designed for reply-rate optimization.</p>
+      <div class="details hidden mt-4 text-left text-gray-700">
+        <p>
+          Think of it like sending letters to your dream customers — but we make sure every letter sounds 
+          friendly, interesting, and impossible to ignore. Our system sends personalized emails automatically, 
+          keeps track of who replies, and follows up politely so you never forget. You just watch your inbox fill 
+          up with actual conversations — not crickets.
+        </p>
+      </div>
+    </div>
+
+    <!-- Client Ops -->
+    <div class="bg-white p-6 rounded-lg shadow card-animate cursor-pointer transition-all duration-300" onclick="toggleService(this)">
+      <div class="text-[var(--light-red)] text-3xl mb-4">⚙️</div>
+      <h3 class="font-semibold text-xl mb-2">Client Ops</h3>
+      <p class="text-gray-700 summary">Onboarding, delivery templates, and reporting to scale client load without chaos.</p>
+      <div class="details hidden mt-4 text-left text-gray-700">
+        <p>
+          Imagine you suddenly get 10 new clients at once — exciting, but also chaos if you’re unprepared. 
+          Our system gives you templates, dashboards, and reports that make client management effortless. 
+          Everyone gets onboarded smoothly, projects stay on track, and nothing falls through the cracks. 
+          You focus on results — we handle the structure.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+function toggleService(el) {
+  const details = el.querySelector('.details');
+  const summary = el.querySelector('.summary');
+  const expanded = !details.classList.contains('hidden');
+
+  // Close all other boxes
+  document.querySelectorAll('#services .details').forEach(d => d.classList.add('hidden'));
+  document.querySelectorAll('#services .summary').forEach(s => s.classList.remove('hidden'));
+  document.querySelectorAll('#services .bg-gray-50').forEach(box => box.classList.remove('bg-gray-50'));
+
+  // Toggle current one
+  if (!expanded) {
+    details.classList.remove('hidden');
+    summary.classList.add('hidden');
+    el.classList.add('bg-gray-50');
+  }
+}
+</script>
+
 
   <!-- Why -->
   <section id="why" class="max-w-6xl mx-auto px-6 py-16 fade-up">
