@@ -317,44 +317,72 @@ function toggleService(el) {
     fadeEls.forEach(el => obs.observe(el));
   </script>
 
-  <script>
+<!--Tracking Analytics-->
+<script>
 document.addEventListener("DOMContentLoaded", () => {
-  // ---- MOBILE: track button click ----
-  const mobileFormButton = document.querySelector(".form-button");
-  if (mobileFormButton) {
-    mobileFormButton.addEventListener("click", () => {
-      gtag("event", "form_opened", {
-        event_category: "Form",
-        event_label: "Mobile Form Button Clicked",
-        value: 1
-      });
+  // GA helper
+  function sendGAEvent(name, category, label) {
+    gtag("event", name, {
+      event_category: category,
+      event_label: label,
+      value: 1
     });
   }
 
-  // ---- DESKTOP: track Google Form submission ----
+  // 1. Hero CTAs
+  const heroCTAs = document.querySelectorAll('section:nth-of-type(1) a');
+  heroCTAs.forEach(btn => {
+    btn.addEventListener("click", () => {
+      sendGAEvent("hero_cta_click", "CTA", btn.innerText.trim());
+    });
+  });
+
+  // 2. Mobile Form Button
+  const mobileFormButton = document.querySelector(".form-button");
+  if (mobileFormButton) {
+    mobileFormButton.addEventListener("click", () => {
+      sendGAEvent("form_opened", "Form", "Mobile Form Button Clicked");
+    });
+  }
+
+  // 3. Desktop Form Submission (embedded iframe)
   const formIframe = document.querySelector(".form-desktop");
   if (formIframe) {
     formIframe.addEventListener("load", () => {
-      // Watch for Google Form submission page load
       const checkSubmission = setInterval(() => {
         try {
           const iframeDoc = formIframe.contentDocument || formIframe.contentWindow.document;
           if (iframeDoc && iframeDoc.body.innerText.includes("Your response has been recorded")) {
-            gtag("event", "form_submitted", {
-              event_category: "Form",
-              event_label: "Desktop Form Submitted",
-              value: 1
-            });
+            sendGAEvent("form_submitted", "Form", "Desktop Form Submitted");
             clearInterval(checkSubmission);
           }
         } catch (e) {
-          // Cross-origin protection; ignore
+          // Cross-origin restriction, ignore
         }
       }, 1500);
     });
   }
+
+  // 4. What We Do Section
+  const serviceBoxes = document.querySelectorAll("#services .card-animate");
+  serviceBoxes.forEach(box => {
+    box.addEventListener("click", () => {
+      const title = box.querySelector("h3").innerText.trim();
+      sendGAEvent("service_box_click", "Services", title);
+    });
+  });
+
+  // 5. Footer Contact Email
+  const footerEmail = document.querySelector("footer a[href^='mailto']");
+  if (footerEmail) {
+    footerEmail.addEventListener("click", () => {
+      sendGAEvent("footer_email_click", "Contact", footerEmail.innerText.trim());
+    });
+  }
+
 });
 </script>
+
 
 </body>
 </html>
