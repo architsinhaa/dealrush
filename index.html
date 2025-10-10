@@ -316,5 +316,45 @@ function toggleService(el) {
     }, { threshold: 0.2 });
     fadeEls.forEach(el => obs.observe(el));
   </script>
+
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  // ---- MOBILE: track button click ----
+  const mobileFormButton = document.querySelector(".form-button");
+  if (mobileFormButton) {
+    mobileFormButton.addEventListener("click", () => {
+      gtag("event", "form_opened", {
+        event_category: "Form",
+        event_label: "Mobile Form Button Clicked",
+        value: 1
+      });
+    });
+  }
+
+  // ---- DESKTOP: track Google Form submission ----
+  const formIframe = document.querySelector(".form-desktop");
+  if (formIframe) {
+    formIframe.addEventListener("load", () => {
+      // Watch for Google Form submission page load
+      const checkSubmission = setInterval(() => {
+        try {
+          const iframeDoc = formIframe.contentDocument || formIframe.contentWindow.document;
+          if (iframeDoc && iframeDoc.body.innerText.includes("Your response has been recorded")) {
+            gtag("event", "form_submitted", {
+              event_category: "Form",
+              event_label: "Desktop Form Submitted",
+              value: 1
+            });
+            clearInterval(checkSubmission);
+          }
+        } catch (e) {
+          // Cross-origin protection; ignore
+        }
+      }, 1500);
+    });
+  }
+});
+</script>
+
 </body>
 </html>
