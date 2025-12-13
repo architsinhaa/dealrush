@@ -23,7 +23,7 @@ header {
   align-items: center;
   padding: 20px 0;
   background: rgba(248, 249, 250, 0.85); /* semi-transparent light grey */
-  backdrop-filter: blur(12px);           /* subtle blur */
+  backdrop-filter: blur(5px);           /* subtle blur */
   -webkit-backdrop-filter: blur(12px);   /* Safari support */
   position: sticky;
   top: 0;
