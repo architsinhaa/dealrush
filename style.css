@@ -1,86 +1,247 @@
-/* DealRush - Light Red + Light Grey theme */
-:root{
-  --bg:#f6f6f7;
-  --muted:#9aa0a6;
-  --light-red: #ff6b6b;
-  --light-red-600: #ff4d4d;
-  --card:#ffffff;
-  --max-width:1100px;
-  --accent: var(--light-red);
-  --text:#0f1720;
+/* =========================================================
+   DealRush — Dark, Professional, Minimal UI
+   Accent: Muted Blue
+   ========================================================= */
+
+/* ---------- CSS Variables ---------- */
+:root {
+  --bg-main: #0b0f14;
+  --bg-section: #111823;
+  --bg-card: #161e2b;
+  --bg-elevated: #1b2536;
+
+  --text-primary: #e6eaf0;
+  --text-secondary: #a5afbd;
+  --text-muted: #7b8696;
+
+  --accent: #4f7cff; /* single accent color */
+
+  --border-subtle: rgba(255, 255, 255, 0.08);
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+
+  --max-width: 1100px;
 }
 
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  overflow-x:hidden;
-  margin:0;
-  font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  background:var(--bg);
-  color:var(--text);
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
+/* ---------- Base Reset ---------- */
+* {
+  box-sizing: border-box;
 }
 
-.container{max-width:var(--max-width);margin:0 auto;padding:0 20px;}
-
-/* Header */
-.site-header{background:transparent;padding:18px 0;position:sticky;top:0;z-index:40}
-.header-inner{display:flex;align-items:center;justify-content:space-between}
-.brand{display:flex;gap:12px;align-items:center}
-.logo{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--light-red),#ff8a8a);display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
-.brand-text h1{margin:0;font-size:18px;letter-spacing:0.2px}
-.tagline{margin:0;color:var(--muted);font-size:13px}
-
-/* Nav */
-.nav a{margin-left:12px;text-decoration:none;color:var(--text);font-weight:600}
-.btn{background:var(--accent);color:white;padding:10px 14px;border-radius:8px;text-decoration:none;border:none;cursor:pointer;display:inline-block}
-.btn-large{padding:12px 18px;font-size:16px}
-.btn-ghost{background:transparent;padding:8px 12px;border-radius:8px;border:1px solid transparent;color:var(--text)}
-
-/* Hero */
-.hero{padding:50px 0 30px}
-.hero-inner{display:flex;gap:30px;align-items:stretch}
-.hero-copy{flex:1}
-.hero-copy h2{font-size:32px;margin:0 0 10px}
-.hero-copy .lead{color:var(--muted);margin:0 0 18px}
-.hero-card{width:320px;background:var(--card);border-radius:12px;box-shadow:0 6px 20px rgba(15,23,32,0.06);padding:18px;align-self:flex-start;border:1px solid #eee}
-.card-header{font-weight:700;margin-bottom:8px}
-.card-body p{margin:0 0 8px;color:var(--text)}
-
-d: linear-gradient(135deg, #1e40af, #1d4ed8);
-
-
-/* Services */
-.section{padding:40px 0}
-.section h3{margin:0 0 18px;font-size:20px}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.card{background:var(--card);padding:16px;border-radius:10px;border:1px solid #eee}
-
-/* Why */
-.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-
-/* CTA */
-.cta{background:linear-gradient(180deg, #fff, #fff);padding:30px 0;border-top:1px solid #eee}
-.cta-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
-.cta-copy h3{margin:0 0 8px}
-.cta-form{display:flex;gap:8px;align-items:center}
-.cta-form input{padding:12px 14px;border-radius:8px;border:1px solid #ddd;width:260px}
-.price-cta .btn{width:100%}
-
-/* Footer */
-.site-footer{padding:18px 0;border-top:1px solid #eee;color:var(--muted);font-size:14px}
-.footer-inner{display:flex;justify-content:space-between;align-items:center}
-
-/* Responsive */
-@media (max-width:900px){
-  .hero-inner{flex-direction:column}
-  .grid, .why-grid{grid-template-columns:1fr}
-  .cta-inner{flex-direction:column;align-items:flex-start}
-  .hero-copy h2{font-size:26px}
-  .brand-text h1{font-size:16px}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg-main);
+  color: var(--text-primary);
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* small interactions */
-.link-ghost{color:var(--accent);text-decoration:none;font-weight:600}
-.toast{position:fixed;right:20px;bottom:20px;background:var(--card);padding:10px 14px;border-radius:8px;border:1px solid #eee;box-shadow:0 8px 30px rgba(15,23,32,0.06);display:none}
+/* ---------- Typography ---------- */
+h1,
+h2,
+h3 {
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  font-size: clamp(2.2rem, 4vw, 3rem);
+}
+
+h2 {
+  font-size: clamp(1.8rem, 3vw, 2.3rem);
+}
+
+h3 {
+  font-size: 1.2rem;
+}
+
+p,
+li {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+}
+
+ul {
+  padding-left: 1.2rem;
+}
+
+/* ---------- Layout ---------- */
+header,
+section,
+footer {
+  width: 100%;
+}
+
+section {
+  margin-top: 2rem;
+}
+
+.max-w-6xl {
+  max-width: var(--max-width);
+}
+
+/* ---------- Header ---------- */
+header {
+  background: rgba(11, 15, 20, 0.9);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+header nav a {
+  color: var(--text-secondary);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+header nav a:hover {
+  color: var(--text-primary);
+}
+
+/* ---------- Hero ---------- */
+section:first-of-type {
+  background: linear-gradient(
+    180deg,
+    rgba(79, 124, 255, 0.08) 0%,
+    rgba(11, 15, 20, 0) 70%
+  );
+}
+
+section:first-of-type p {
+  max-width: 700px;
+}
+
+/* ---------- Buttons / CTAs ---------- */
+a.bg-black,
+a.border {
+  background: var(--accent);
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+a.border {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}
+
+a.bg-black:hover,
+a.border:hover {
+  background: #3e68e6;
+  color: #fff;
+}
+
+.hover-btn {
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* ---------- Section Separation ---------- */
+section:not(:first-of-type) {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+/* ---------- Cards (System / Requirements) ---------- */
+.bg-white {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border-subtle);
+}
+
+.shadow {
+  box-shadow: none;
+}
+
+.rounded-xl,
+.rounded-2xl {
+  border-radius: var(--radius-lg);
+}
+
+/* ---------- Grid System ---------- */
+.grid {
+  display: grid;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .grid.md\:grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ---------- Requirements Section ---------- */
+#requirements {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+}
+
+#requirements p:first-of-type {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+#requirements li {
+  color: var(--text-secondary);
+}
+
+/* ---------- CTA Section ---------- */
+#contact {
+  background: linear-gradient(
+    180deg,
+    rgba(79, 124, 255, 0.12) 0%,
+    rgba(11, 15, 20, 0) 80%
+  );
+}
+
+#contact h2 {
+  margin-bottom: 1rem;
+}
+
+/* ---------- Footer ---------- */
+footer {
+  border-top: 1px solid var(--border-subtle);
+  background: var(--bg-main);
+}
+
+footer a {
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: var(--text-primary);
+}
+
+/* ---------- Subtle Fade ---------- */
+.fade-up {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Mobile Adjustments ---------- */
+@media (max-width: 768px) {
+  header {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}
