@@ -14,8 +14,7 @@
   --text-secondary: #a5afbd;
   --text-muted: #7b8696;
 
-  /* Brand accent (light red) */
-  --accent: #ff6b6b;
+  --accent: #ff6b6b; /* DealRush light red */
   --accent-hover: #ff5252;
 
   --border-subtle: rgba(255, 255, 255, 0.08);
@@ -48,7 +47,7 @@ h1,
 h2,
 h3 {
   color: var(--text-primary);
-  letter-spacing: -0.015em;
+  letter-spacing: -0.01em;
 }
 
 h1 {
@@ -80,6 +79,10 @@ footer {
   width: 100%;
 }
 
+section {
+  margin-top: 2rem;
+}
+
 .max-w-6xl {
   max-width: var(--max-width);
 }
@@ -104,8 +107,8 @@ header nav a:hover {
 section:first-of-type {
   background: linear-gradient(
     180deg,
-    rgba(255, 107, 107, 0.08) 0%,
-    rgba(11, 15, 20, 0) 75%
+    rgba(255, 107, 107, 0.10) 0%,
+    rgba(11, 15, 20, 0) 70%
   );
 }
 
@@ -114,28 +117,25 @@ section:first-of-type p {
 }
 
 /* ---------- Buttons / CTAs ---------- */
-a.bg-black {
+a.bg-black,
+a.border {
   background: var(--accent);
-  color: #0b0f14;
+  border: none;
+  color: #ffffff;
   font-weight: 600;
   letter-spacing: 0.01em;
-  border: none;
 }
 
 a.border {
   background: transparent;
   border: 1px solid var(--accent);
   color: var(--accent);
-  font-weight: 600;
 }
 
-a.bg-black:hover {
-  background: var(--accent-hover);
-}
-
+a.bg-black:hover,
 a.border:hover {
-  background: var(--accent);
-  color: #0b0f14;
+  background: var(--accent-hover);
+  color: #ffffff;
 }
 
 .hover-btn {
@@ -149,7 +149,7 @@ section:not(:first-of-type) {
   border-top: 1px solid var(--border-subtle);
 }
 
-/* ---------- Cards (System / General) ---------- */
+/* ---------- Cards (System / Content Blocks) ---------- */
 .bg-white {
   background: var(--bg-card) !important;
   border: 1px solid var(--border-subtle);
@@ -164,7 +164,7 @@ section:not(:first-of-type) {
   border-radius: var(--radius-lg);
 }
 
-/* ---------- Grid ---------- */
+/* ---------- Grid System ---------- */
 .grid {
   display: grid;
   gap: 2rem;
@@ -176,7 +176,7 @@ section:not(:first-of-type) {
   }
 }
 
-/* ---------- Requirements Section ---------- */
+/* ---------- Requirements Section (Firm, Authoritative) ---------- */
 #requirements {
   background: var(--bg-elevated);
   border: 1px solid var(--border-subtle);
@@ -199,7 +199,7 @@ section:not(:first-of-type) {
 #contact {
   background: linear-gradient(
     180deg,
-    rgba(255, 107, 107, 0.12) 0%,
+    rgba(255, 107, 107, 0.14) 0%,
     rgba(11, 15, 20, 0) 80%
   );
 }
@@ -226,7 +226,7 @@ footer a:hover {
 /* ---------- Subtle Fade (Purposeful Only) ---------- */
 .fade-up {
   opacity: 0;
-  transform: translateY(16px);
+  transform: translateY(14px);
   transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
@@ -235,7 +235,7 @@ footer a:hover {
   transform: translateY(0);
 }
 
-/* ---------- Mobile ---------- */
+/* ---------- Mobile Adjustments ---------- */
 @media (max-width: 768px) {
   header {
     padding: 1rem;
