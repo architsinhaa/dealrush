@@ -1,27 +1,18 @@
 /* =========================================================
-   DealRush — Dark, Professional, Minimal UI
-   Accent: Muted Blue
+   DealRush — Minimal & Premium CSS
+   Accent: Light Red (#ff6b6b)
    ========================================================= */
 
 /* ---------- CSS Variables ---------- */
 :root {
-  --bg-main: #0b0f14;
-  --bg-section: #111823;
-  --bg-card: #161e2b;
-  --bg-elevated: #1b2536;
-
-  --text-primary: #e6eaf0;
-  --text-secondary: #a5afbd;
-  --text-muted: #7b8696;
-
-  --accent: #4f7cff; /* single accent color */
-
-  --border-subtle: rgba(255, 255, 255, 0.08);
-
-  --radius-sm: 8px;
+  --bg-main: #f8f9fa;        /* Very light grey for overall background */
+  --bg-card: #ffffff;        /* Card background */
+  --text-primary: #1b1b1b;   /* Main text */
+  --text-secondary: #4a4a4a; /* Supporting text */
+  --accent: #ff6b6b;         /* DealRush accent */
+  --border-subtle: #e0e0e0;
   --radius-md: 12px;
   --radius-lg: 18px;
-
   --max-width: 1100px;
 }
 
@@ -30,143 +21,127 @@
   box-sizing: border-box;
 }
 
-html,
 body {
   margin: 0;
   padding: 0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   background: var(--bg-main);
   color: var(--text-primary);
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-  line-height: 1.55;
-  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
 }
 
-/* ---------- Typography ---------- */
-h1,
-h2,
-h3 {
-  color: var(--text-primary);
-  letter-spacing: -0.01em;
-}
-
-h1 {
-  font-size: clamp(2.2rem, 4vw, 3rem);
-}
-
-h2 {
-  font-size: clamp(1.8rem, 3vw, 2.3rem);
-}
-
-h3 {
-  font-size: 1.2rem;
-}
-
-p,
-li {
-  color: var(--text-secondary);
-  font-size: 1.05rem;
-}
-
-ul {
-  padding-left: 1.2rem;
-}
-
-/* ---------- Layout ---------- */
-header,
-section,
-footer {
-  width: 100%;
-}
-
-section {
-  margin-top: 2rem;
-}
-
+/* ---------- Layout Containers ---------- */
 .max-w-6xl {
   max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 /* ---------- Header ---------- */
 header {
-  background: rgba(11, 15, 20, 0.9);
-  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  background: transparent;
+  position: sticky;
+  top: 0;
+  z-index: 50;
 }
 
 header nav a {
+  text-decoration: none;
   color: var(--text-secondary);
   font-weight: 500;
-  text-decoration: none;
+  margin-left: 20px;
 }
 
 header nav a:hover {
-  color: var(--text-primary);
+  color: var(--accent);
 }
 
 /* ---------- Hero ---------- */
 section:first-of-type {
-  background: linear-gradient(
-    180deg,
-    rgba(79, 124, 255, 0.08) 0%,
-    rgba(11, 15, 20, 0) 70%
-  );
+  padding: 80px 20px;
+  text-align: left;
+}
+
+section:first-of-type h1 {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+section:first-of-type h1 span {
+  display: block;
+  font-weight: 500;
+  color: var(--text-secondary);
+  font-size: clamp(1.8rem, 3vw, 2.2rem);
+  margin-top: 10px;
 }
 
 section:first-of-type p {
   max-width: 700px;
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  margin-top: 20px;
 }
 
-/* ---------- Buttons / CTAs ---------- */
-a.bg-black,
-a.border {
-  background: var(--accent);
-  border: none;
-  color: #fff;
+section:first-of-type .hover-btn {
   font-weight: 600;
-  letter-spacing: 0.01em;
+  text-decoration: none;
+  display: inline-block;
+  padding: 14px 28px;
+  border-radius: var(--radius-md);
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
-a.border {
+section:first-of-type .hover-btn:first-of-type {
+  background: var(--accent);
+  color: #fff;
+}
+
+section:first-of-type .hover-btn:first-of-type:hover {
+  background: #ff5252;
+}
+
+section:first-of-type .hover-btn:last-of-type {
   background: transparent;
   border: 1px solid var(--accent);
   color: var(--accent);
 }
 
-a.bg-black:hover,
-a.border:hover {
-  background: #3e68e6;
+section:first-of-type .hover-btn:last-of-type:hover {
+  background: var(--accent);
   color: #fff;
 }
 
-.hover-btn {
-  transition: background-color 0.2s ease, color 0.2s ease;
+/* ---------- Sections ---------- */
+section {
+  padding: 80px 20px;
 }
 
-/* ---------- Section Separation ---------- */
-section:not(:first-of-type) {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
-  border-top: 1px solid var(--border-subtle);
+section h2 {
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
 }
 
-/* ---------- Cards (System / Requirements) ---------- */
+/* ---------- Cards / Content Blocks ---------- */
 .bg-white {
   background: var(--bg-card) !important;
+  border-radius: var(--radius-md);
   border: 1px solid var(--border-subtle);
+  padding: 24px;
 }
 
 .shadow {
-  box-shadow: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
-.rounded-xl,
-.rounded-2xl {
-  border-radius: var(--radius-lg);
-}
-
-/* ---------- Grid System ---------- */
 .grid {
   display: grid;
-  gap: 2rem;
+  gap: 24px;
 }
 
 @media (min-width: 768px) {
@@ -175,53 +150,79 @@ section:not(:first-of-type) {
   }
 }
 
+/* ---------- Text Styles ---------- */
+p, li {
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+ul {
+  padding-left: 1.4rem;
+  list-style: disc;
+}
+
+li {
+  margin-bottom: 0.6rem;
+}
+
 /* ---------- Requirements Section ---------- */
 #requirements {
-  background: var(--bg-elevated);
+  background: var(--bg-card);
   border: 1px solid var(--border-subtle);
+  padding: 60px 30px;
+  border-radius: var(--radius-lg);
 }
 
 #requirements p:first-of-type {
   font-weight: 600;
   color: var(--text-primary);
+  margin-bottom: 1rem;
 }
 
 #requirements li {
   color: var(--text-secondary);
 }
 
-/* ---------- CTA Section ---------- */
+/* ---------- CTA ---------- */
 #contact {
-  background: linear-gradient(
-    180deg,
-    rgba(79, 124, 255, 0.12) 0%,
-    rgba(11, 15, 20, 0) 80%
-  );
+  text-align: center;
+  padding: 80px 20px;
 }
 
 #contact h2 {
+  font-size: 2rem;
   margin-bottom: 1rem;
+}
+
+#contact p {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  font-size: 1.125rem;
 }
 
 /* ---------- Footer ---------- */
 footer {
+  text-align: center;
+  padding: 40px 20px;
   border-top: 1px solid var(--border-subtle);
-  background: var(--bg-main);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
 }
 
 footer a {
-  color: var(--text-muted);
+  color: var(--text-secondary);
   text-decoration: none;
+  margin: 0 8px;
 }
 
 footer a:hover {
-  color: var(--text-primary);
+  color: var(--accent);
 }
 
-/* ---------- Subtle Fade ---------- */
+/* ---------- Fade Animation ---------- */
 .fade-up {
   opacity: 0;
-  transform: translateY(16px);
+  transform: translateY(12px);
   transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
@@ -230,18 +231,28 @@ footer a:hover {
   transform: translateY(0);
 }
 
-/* ---------- Mobile Adjustments ---------- */
+/* ---------- Responsive ---------- */
 @media (max-width: 768px) {
-  header {
-    padding: 1rem;
+  section {
+    padding: 60px 16px;
   }
 
   h1 {
     font-size: 2rem;
   }
 
-  section {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  .grid.md\:grid-cols-3 {
+    grid-template-columns: 1fr;
+  }
+
+  section:first-of-type .hover-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 12px;
   }
 }
