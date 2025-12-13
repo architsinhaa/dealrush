@@ -1,6 +1,6 @@
 /* =========================================================
    DealRush — Dark, Professional, Minimal UI
-   Accent: Light Red (Brand)
+   Accent: Muted Blue
    ========================================================= */
 
 /* ---------- CSS Variables ---------- */
@@ -14,8 +14,7 @@
   --text-secondary: #a5afbd;
   --text-muted: #7b8696;
 
-  --accent: #ff6b6b; /* DealRush light red */
-  --accent-hover: #ff5252;
+  --accent: #4f7cff; /* single accent color */
 
   --border-subtle: rgba(255, 255, 255, 0.08);
 
@@ -38,7 +37,7 @@ body {
   background: var(--bg-main);
   color: var(--text-primary);
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-  line-height: 1.6;
+  line-height: 1.55;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -89,7 +88,7 @@ section {
 
 /* ---------- Header ---------- */
 header {
-  background: rgba(11, 15, 20, 0.92);
+  background: rgba(11, 15, 20, 0.9);
   border-bottom: 1px solid var(--border-subtle);
 }
 
@@ -107,13 +106,13 @@ header nav a:hover {
 section:first-of-type {
   background: linear-gradient(
     180deg,
-    rgba(255, 107, 107, 0.10) 0%,
+    rgba(79, 124, 255, 0.08) 0%,
     rgba(11, 15, 20, 0) 70%
   );
 }
 
 section:first-of-type p {
-  max-width: 720px;
+  max-width: 700px;
 }
 
 /* ---------- Buttons / CTAs ---------- */
@@ -121,7 +120,7 @@ a.bg-black,
 a.border {
   background: var(--accent);
   border: none;
-  color: #ffffff;
+  color: #fff;
   font-weight: 600;
   letter-spacing: 0.01em;
 }
@@ -134,8 +133,8 @@ a.border {
 
 a.bg-black:hover,
 a.border:hover {
-  background: var(--accent-hover);
-  color: #ffffff;
+  background: #3e68e6;
+  color: #fff;
 }
 
 .hover-btn {
@@ -149,7 +148,7 @@ section:not(:first-of-type) {
   border-top: 1px solid var(--border-subtle);
 }
 
-/* ---------- Cards (System / Content Blocks) ---------- */
+/* ---------- Cards (System / Requirements) ---------- */
 .bg-white {
   background: var(--bg-card) !important;
   border: 1px solid var(--border-subtle);
@@ -176,14 +175,10 @@ section:not(:first-of-type) {
   }
 }
 
-/* ---------- Requirements Section (Firm, Authoritative) ---------- */
+/* ---------- Requirements Section ---------- */
 #requirements {
   background: var(--bg-elevated);
   border: 1px solid var(--border-subtle);
-}
-
-#requirements h2 {
-  color: var(--text-primary);
 }
 
 #requirements p:first-of-type {
@@ -199,7 +194,7 @@ section:not(:first-of-type) {
 #contact {
   background: linear-gradient(
     180deg,
-    rgba(255, 107, 107, 0.14) 0%,
+    rgba(79, 124, 255, 0.12) 0%,
     rgba(11, 15, 20, 0) 80%
   );
 }
@@ -223,10 +218,10 @@ footer a:hover {
   color: var(--text-primary);
 }
 
-/* ---------- Subtle Fade (Purposeful Only) ---------- */
+/* ---------- Subtle Fade ---------- */
 .fade-up {
   opacity: 0;
-  transform: translateY(14px);
+  transform: translateY(16px);
   transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
