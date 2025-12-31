@@ -3,16 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DealRush — Outbound Infrastructure</title>
+  <title>Inbox Ignition — DealRush</title>
 
   <link rel="icon" type="image/png" href="dealrush-logo.png" />
 
   <style>
     :root {
       --text: #111;
-      --muted: #666;
-      --border: #e5e5e5;
+      --muted: #6b6b6b;
+      --border: #e6e6e6;
       --bg: #ffffff;
+      --accent: #111;
     }
 
     * {
@@ -25,12 +26,12 @@
       font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.65;
     }
 
     a {
-      color: inherit;
       text-decoration: none;
+      color: inherit;
     }
 
     .container {
@@ -66,8 +67,8 @@
 
     h1 {
       font-size: 3.2rem;
+      line-height: 1.1;
       font-weight: 700;
-      line-height: 1.15;
       letter-spacing: -0.02em;
     }
 
@@ -77,8 +78,8 @@
     }
 
     p {
+      max-width: 640px;
       color: var(--muted);
-      max-width: 620px;
       font-size: 1.05rem;
     }
 
@@ -95,15 +96,15 @@
     }
 
     .btn {
-      padding: 14px 26px;
+      padding: 14px 28px;
       font-weight: 600;
       border-radius: 6px;
       transition: 0.2s ease;
     }
 
     .btn-primary {
-      background: #000;
-      color: #fff;
+      background: var(--accent);
+      color: white;
     }
 
     .btn-primary:hover {
@@ -130,11 +131,6 @@
       font-size: 1.15rem;
     }
 
-    .divider {
-      border-top: 1px solid var(--border);
-      margin: 80px 0;
-    }
-
     footer {
       border-top: 1px solid var(--border);
       padding: 32px 0;
@@ -154,7 +150,7 @@
     <nav>
       <strong>DealRush</strong>
       <div>
-        <a href="#system">System</a>
+        <a href="#system">How it works</a>
         <a href="#requirements">Requirements</a>
         <a href="https://calendly.com/archit-dealrush/30min" target="_blank">Book Call</a>
       </div>
@@ -164,11 +160,14 @@
 
 <section class="hero">
   <div class="container">
-    <h1>Outbound infrastructure<br>built for scale.</h1>
+    <h1>
+      Your outbound isn’t broken.<br>
+      Your infrastructure is.
+    </h1>
 
     <p>
-      Inbox Ignition sets up the foundation your outbound depends on —
-      domains, inboxes, warmup, and protection done the right way.
+      Inbox Ignition is a done-for-you foundation that makes outbound reliable —
+      so your emails land, your domain stays clean, and your system scales without burning.
     </p>
 
     <div class="cta-group">
@@ -176,45 +175,61 @@
         Start Inbox Ignition
       </a>
       <a href="#system" class="btn btn-secondary">
-        How it works
+        See how it works
       </a>
     </div>
   </div>
 </section>
 
+<section>
+  <div class="container">
+    <h2>The real problem with outbound</h2>
+
+    <p>
+      Most teams don’t fail because of copy or targeting.
+      They fail because their infrastructure collapses under volume.
+    </p>
+
+    <p style="margin-top: 16px;">
+      Burned domains. Spam folders. Inconsistent results.
+      That’s not bad outreach — that’s bad foundations.
+    </p>
+  </div>
+</section>
+
 <section id="system">
   <div class="container">
-    <h2>The DealRush Outbound Engine</h2>
+    <h2>What Inbox Ignition actually does</h2>
 
     <div class="grid">
       <div class="item">
-        <h3>Domain & inbox setup</h3>
-        <p>Clean infrastructure built specifically for outbound delivery.</p>
+        <h3>Domain & inbox architecture</h3>
+        <p>Clean sending infrastructure built for long-term deliverability.</p>
       </div>
 
       <div class="item">
-        <h3>Warmup & reputation</h3>
-        <p>Controlled sending that builds trust before scale.</p>
+        <h3>Warmup & trust building</h3>
+        <p>Controlled behavior that earns reputation before volume.</p>
       </div>
 
       <div class="item">
-        <h3>Lead segmentation</h3>
-        <p>Structured data so outreach stays relevant and intentional.</p>
+        <h3>Segmentation & routing</h3>
+        <p>Right message, right inbox, right moment.</p>
       </div>
 
       <div class="item">
-        <h3>Protection systems</h3>
-        <p>Your main domain stays untouched and safe.</p>
+        <h3>Protection layers</h3>
+        <p>Your main domain never touches risk.</p>
       </div>
 
       <div class="item">
-        <h3>Automated sending</h3>
-        <p>Stable, monitored infrastructure — no babysitting.</p>
+        <h3>Automation that behaves</h3>
+        <p>Built to scale without tripping spam filters.</p>
       </div>
 
       <div class="item">
-        <h3>Reply intelligence</h3>
-        <p>Responses feed improvement, not chaos.</p>
+        <h3>Signal-based improvement</h3>
+        <p>Replies inform optimization — not guesswork.</p>
       </div>
     </div>
   </div>
@@ -225,31 +240,38 @@
     <h2>Why we don’t sell leads</h2>
 
     <p>
-      Buying leads kills accountability and destroys long-term results.
-      We only work with first-party or consented data — because ownership matters.
+      Selling leads creates dependency and hides failure.
+      If the data is bad, nobody is accountable.
+    </p>
+
+    <p style="margin-top:16px;">
+      We only work with first-party or consented data so results are real,
+      repeatable, and owned by you.
     </p>
   </div>
 </section>
 
 <section id="requirements">
   <div class="container">
-    <h2>Requirements</h2>
+    <h2>Before we work together</h2>
 
     <p>This only works if:</p>
 
     <ul style="margin-top:16px; padding-left:20px; color:var(--muted);">
-      <li>You provide your own lead data</li>
-      <li>You use a dedicated sending domain</li>
-      <li>You understand this is infrastructure, not a hack</li>
+      <li>You control your lead data</li>
+      <li>You’re willing to protect your sending reputation</li>
+      <li>You want a system — not a quick hack</li>
     </ul>
   </div>
 </section>
 
 <section>
   <div class="container">
-    <h2>Ready to build outbound properly?</h2>
+    <h2>Ready to fix your outbound for good?</h2>
+
     <p>
-      We’ll tell you honestly if DealRush is a fit — or if it’s not.
+      If you’re serious, we’ll tell you whether Inbox Ignition is right for you.
+      If not, we’ll tell you that too.
     </p>
 
     <div class="cta-group">
