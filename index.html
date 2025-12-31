@@ -1,230 +1,275 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZZXVZHL2DD"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-ZZXVZHL2DD');
-  </script>
-
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no" />
-  <link rel="icon" type="image/png" href="dealrush-logo.png" />
-  <link rel="stylesheet" href="style.css">
-  <title>DealRush — Outbound Infrastructure for Revenue Teams</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DealRush — Outbound Infrastructure</title>
 
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" type="image/png" href="dealrush-logo.png" />
 
   <style>
     :root {
-      --light-red: #ff6b6b;
-      --light-grey: #f6f6f7;
+      --text: #111;
+      --muted: #666;
+      --border: #e5e5e5;
+      --bg: #ffffff;
     }
 
-    .hover-btn {
-      transition: all 0.25s ease;
-    }
-    .hover-btn:hover {
-      transform: scale(1.04);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    .fade-up {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.6s ease-out;
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
     }
-    .fade-up.visible {
-      opacity: 1;
-      transform: translateY(0);
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    header {
+      padding: 28px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav a {
+      margin-left: 20px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: var(--text);
+    }
+
+    section {
+      padding: 96px 0;
+    }
+
+    h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+    }
+
+    p {
+      color: var(--muted);
+      max-width: 620px;
+      font-size: 1.05rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-top: 24px;
+    }
+
+    .cta-group {
+      margin-top: 40px;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 14px 26px;
+      font-weight: 600;
+      border-radius: 6px;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: #000;
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.85;
+    }
+
+    .btn-secondary {
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: #f5f5f5;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 40px;
+      margin-top: 48px;
+    }
+
+    .item h3 {
+      margin-bottom: 8px;
+      font-size: 1.15rem;
+    }
+
+    .divider {
+      border-top: 1px solid var(--border);
+      margin: 80px 0;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 0;
+      font-size: 0.9rem;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
     }
   </style>
 </head>
 
-<body class="bg-[var(--light-grey)] text-gray-900 font-sans">
+<body>
 
-<!-- Header -->
-<header class="flex justify-between items-center p-6 max-w-6xl mx-auto">
-  <div class="text-xl font-bold cursor-pointer" onclick="window.location.href='/'">DealRush</div>
-  <nav class="space-x-4">
-    <a href="#system" class="text-gray-700 hover:text-[var(--light-red)]">System</a>
-    <a href="#requirements" class="text-gray-700 hover:text-[var(--light-red)]">Requirements</a>
-    <a href="#contact" class="text-gray-700 hover:text-[var(--light-red)]">Contact</a>
-    <a href="https://calendly.com/archit-dealrush/30min" target="_blank" class="text-gray-700 hover:text-[var(--light-red)]">Book Call</a>
-  </nav>
+<header>
+  <div class="container">
+    <nav>
+      <strong>DealRush</strong>
+      <div>
+        <a href="#system">System</a>
+        <a href="#requirements">Requirements</a>
+        <a href="https://calendly.com/archit-dealrush/30min" target="_blank">Book Call</a>
+      </div>
+    </nav>
+  </div>
 </header>
 
-<!-- Hero -->
-<section class="max-w-6xl mx-auto px-6 py-20 fade-up">
-  <h1 class="text-4xl md:text-5xl font-bold leading-tight">
-    Outbound infrastructure built on your data.<br/>
-    <span class="text-gray-600 text-3xl md:text-4xl font-medium">
-      Not a cold email agency.
-    </span>
-  </h1>
+<section class="hero">
+  <div class="container">
+    <h1>Outbound infrastructure<br>built for scale.</h1>
 
-  <p class="mt-6 text-lg text-gray-700 max-w-3xl">
-    DealRush builds and runs AI-powered outbound systems using your own lead data,
-    sending domains, and inboxes — designed for long-term deliverability
-    and a predictable sales pipelinee.
-  </p>
+    <p>
+      Inbox Ignition sets up the foundation your outbound depends on —
+      domains, inboxes, warmup, and protection done the right way.
+    </p>
 
-  <div class="mt-8 flex gap-4">
-    <a href="#contact" class="bg-black text-white px-6 py-3 rounded-lg font-semibold hover-btn">
-      See If You’re A Fit
-    </a>
-    <a href="https://calendly.com/archit-dealrush/30min" target="_blank"
-       class="border border-black px-6 py-3 rounded-lg font-semibold hover:bg-black hover:text-white hover-btn">
-      Book Intro Call
-    </a>
-  </div>
-</section>
-
-<!-- Problem -->
-<section class="max-w-6xl mx-auto px-6 py-16 fade-up">
-  <h2 class="text-3xl font-bold mb-6">The outbound problem</h2>
-  <p class="text-gray-700 max-w-3xl">
-    Most teams don’t fail at outbound because of copy.
-    They fail because their infrastructure is fragile.
-    Bad domains. No segmentation. No feedback loop. No control.
-  </p>
-
-  <p class="mt-4 text-gray-700 max-w-3xl">
-    We don’t “send emails for you.”  
-    We build the system that makes outbound reliable.
-  </p>
-</section>
-
-<!-- Our System -->
-<section id="system" class="max-w-6xl mx-auto px-6 py-16 fade-up">
-  <h2 class="text-3xl font-bold mb-10 text-center">The DealRush Outbound Engine™</h2>
-
-  <div class="grid md:grid-cols-3 gap-8">
-    <div class="bg-white p-6 rounded-xl shadow">
-      <h3 class="font-semibold text-xl mb-2">Lead intelligence</h3>
-      <p class="text-gray-700">
-        We enrich and structure your existing lead lists with titles,
-        company data, industry signals, and filters — so messaging
-        is context-aware.
-      </p>
-    </div>
-
-    <div class="bg-white p-6 rounded-xl shadow">
-      <h3 class="font-semibold text-xl mb-2">ICP scoring & segmentation</h3>
-      <p class="text-gray-700">
-        Leads are scored and segmented before sending.
-        No blasting. No guesswork.
-      </p>
-    </div>
-
-    <div class="bg-white p-6 rounded-xl shadow">
-      <h3 class="font-semibold text-xl mb-2">Adaptive AI sequences</h3>
-      <p class="text-gray-700">
-        Multi-step outbound sequences that adjust based on replies,
-        intent signals, and engagement patterns.
-      </p>
-    </div>
-
-    <div class="bg-white p-6 rounded-xl shadow">
-      <h3 class="font-semibold text-xl mb-2">Inbox & domain protection</h3>
-      <p class="text-gray-700">
-        Dedicated sending domains, inbox warmup,
-        throttling, and reputation control.
-        Your main domain stays clean.
-      </p>
-    </div>
-
-    <div class="bg-white p-6 rounded-xl shadow">
-      <h3 class="font-semibold text-xl mb-2">Automated sending stack</h3>
-      <p class="text-gray-700">
-        Infrastructure that runs without manual babysitting —
-        monitored, rate-limited, and optimized.
-      </p>
-    </div>
-
-    <div class="bg-white p-6 rounded-xl shadow">
-      <h3 class="font-semibold text-xl mb-2">Reply classification & feedback</h3>
-      <p class="text-gray-700">
-        Replies are classified automatically.
-        The system improves based on real response data.
-      </p>
+    <div class="cta-group">
+      <a href="https://forms.gle/yYoQo63vNQ5UpcFAA" class="btn btn-primary">
+        Start Inbox Ignition
+      </a>
+      <a href="#system" class="btn btn-secondary">
+        How it works
+      </a>
     </div>
   </div>
 </section>
 
-<!-- NEW SECTION: Why We Don’t Sell Leads -->
-<section class="max-w-6xl mx-auto px-6 py-16 fade-up">
-  <h2 class="text-3xl font-bold mb-6">Why we don’t sell leads</h2>
+<section id="system">
+  <div class="container">
+    <h2>The DealRush Outbound Engine</h2>
 
-  <p class="text-gray-700 max-w-3xl">
-    Buying leads creates dependency and destroys accountability.
-    If the data is bad, nobody owns the outcome.
-  </p>
+    <div class="grid">
+      <div class="item">
+        <h3>Domain & inbox setup</h3>
+        <p>Clean infrastructure built specifically for outbound delivery.</p>
+      </div>
 
-  <p class="mt-4 text-gray-700 max-w-3xl">
-    We only work with first-party or consented data because:
-  </p>
+      <div class="item">
+        <h3>Warmup & reputation</h3>
+        <p>Controlled sending that builds trust before scale.</p>
+      </div>
 
-  <ul class="mt-4 list-disc list-inside text-gray-700 max-w-3xl space-y-2">
-    <li>You own the data and the results</li>
-    <li>Compliance and consent are clear</li>
-    <li>Optimization is actually possible</li>
-  </ul>
+      <div class="item">
+        <h3>Lead segmentation</h3>
+        <p>Structured data so outreach stays relevant and intentional.</p>
+      </div>
+
+      <div class="item">
+        <h3>Protection systems</h3>
+        <p>Your main domain stays untouched and safe.</p>
+      </div>
+
+      <div class="item">
+        <h3>Automated sending</h3>
+        <p>Stable, monitored infrastructure — no babysitting.</p>
+      </div>
+
+      <div class="item">
+        <h3>Reply intelligence</h3>
+        <p>Responses feed improvement, not chaos.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- NEW SECTION: Requirements -->
-<section id="requirements" class="max-w-6xl mx-auto px-6 py-16 fade-up bg-white rounded-2xl shadow">
-  <h2 class="text-3xl font-bold mb-6 text-center">Requirements before we start</h2>
+<section>
+  <div class="container">
+    <h2>Why we don’t sell leads</h2>
 
-  <div class="max-w-3xl mx-auto text-gray-700 space-y-4">
-    <p>This is not optional.</p>
-    <ul class="list-disc list-inside space-y-2">
-      <li>You provide your own lead lists (first-party or consented)</li>
-      <li>You provide a dedicated sending domain</li>
-      <li>You provide inboxes on that domain (no Gmail or Outlook)</li>
-      <li>You understand outbound is a system, not a hack</li>
+    <p>
+      Buying leads kills accountability and destroys long-term results.
+      We only work with first-party or consented data — because ownership matters.
+    </p>
+  </div>
+</section>
+
+<section id="requirements">
+  <div class="container">
+    <h2>Requirements</h2>
+
+    <p>This only works if:</p>
+
+    <ul style="margin-top:16px; padding-left:20px; color:var(--muted);">
+      <li>You provide your own lead data</li>
+      <li>You use a dedicated sending domain</li>
+      <li>You understand this is infrastructure, not a hack</li>
     </ul>
   </div>
 </section>
 
-<!-- CTA -->
-<section id="contact" class="max-w-6xl mx-auto px-6 py-20 text-center fade-up">
-  <h2 class="text-3xl font-bold mb-4">Want outbound you can rely on?</h2>
-  <p class="text-gray-700 mb-8 max-w-2xl mx-auto">
-    If you’re serious about building outbound the right way,
-    we’ll tell you if DealRush makes sense — or not.
-  </p>
+<section>
+  <div class="container">
+    <h2>Ready to build outbound properly?</h2>
+    <p>
+      We’ll tell you honestly if DealRush is a fit — or if it’s not.
+    </p>
 
-  <a href="mailto:mgmt.dealrush@outlook.com"
-     class="bg-black text-white px-8 py-4 rounded-lg font-semibold hover-btn">
-    Start the conversation
-  </a>
+    <div class="cta-group">
+      <a href="mailto:mgmt.dealrush@outlook.com" class="btn btn-primary">
+        Start the conversation
+      </a>
+    </div>
+  </div>
 </section>
 
-<!-- Footer -->
-<footer class="py-6 mt-16">
-  <div class="max-w-6xl mx-auto px-6 flex justify-between items-center text-gray-600 text-sm">
+<footer>
+  <div class="container">
     <div>© DealRush 2025</div>
-    <div class="space-x-4">
-      <a href="terms.html">Terms</a>
-      <a href="privacy.html">Privacy</a>
+    <div>
+      <a href="terms.html">Terms</a> ·
+      <a href="privacy.html">Privacy</a> ·
       <a href="mailto:mgmt.dealrush@outlook.com">Contact</a>
     </div>
   </div>
 </footer>
-
-<script>
-  const fadeEls = document.querySelectorAll('.fade-up');
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) e.target.classList.add('visible');
-    });
-  }, { threshold: 0.2 });
-  fadeEls.forEach(el => obs.observe(el));
-</script>
 
 </body>
 </html>
