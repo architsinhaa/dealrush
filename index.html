@@ -20,7 +20,6 @@
     }
 
     * { box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -32,13 +31,38 @@
 
     a { text-decoration: none; color: inherit; }
 
+    /* ---------- MOTION ---------- */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: all 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+      100% { transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(59,130,246,0.4); }
+      70% { box-shadow: 0 0 0 18px rgba(59,130,246,0); }
+      100% { box-shadow: 0 0 0 0 rgba(59,130,246,0); }
+    }
+
     /* ---------- HEADER ---------- */
 
     header {
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(255,255,255,0.85);
+      background: rgba(255,255,255,0.9);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
     }
@@ -58,12 +82,9 @@
       font-size: 20px;
     }
 
-    .nav-actions a {
-      padding: 10px 18px;
-      border-radius: 10px;
-      font-weight: 600;
-      background: var(--steel);
-      color: white;
+    .nav-actions {
+      display: flex;
+      gap: 12px;
     }
 
     /* ---------- GLOBAL ---------- */
@@ -87,7 +108,7 @@
     }
 
     .btn {
-      padding: 16px 28px;
+      padding: 14px 26px;
       border-radius: 12px;
       font-weight: 600;
       display: inline-flex;
@@ -101,6 +122,7 @@
       background: var(--steel);
       color: white;
       box-shadow: 0 15px 40px rgba(59,130,246,0.35);
+      animation: pulse 3.5s infinite;
     }
 
     .btn-primary:hover {
@@ -116,6 +138,7 @@
 
     .btn-outline:hover {
       background: var(--soft);
+      transform: translateY(-1px);
     }
 
     h1 {
@@ -158,6 +181,7 @@
       border-radius: 20px;
       padding: 28px;
       box-shadow: 0 40px 80px rgba(15,23,42,0.08);
+      animation: float 6s ease-in-out infinite;
     }
 
     .hero-card .row {
@@ -188,8 +212,8 @@
     }
 
     .box:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 30px 70px rgba(15,23,42,0.08);
+      transform: translateY(-6px);
+      box-shadow: 0 30px 70px rgba(15,23,42,0.1);
     }
 
     .process { background: var(--soft); }
@@ -206,6 +230,11 @@
       border: 1px solid var(--border);
       border-radius: 18px;
       padding: 26px;
+      transition: all 0.25s ease;
+    }
+
+    .step:hover {
+      transform: translateY(-4px);
     }
 
     .step span {
@@ -269,13 +298,14 @@
   <div class="nav">
     <div class="logo">DealRush</div>
     <div class="nav-actions">
-      <a href="#cta">Start Inbox Ignition</a>
+      <a href="https://calendly.com/archit-dealrush/30min" class="btn btn-outline">Book Meeting</a>
+      <a href="#cta" class="btn btn-primary">Start Inbox Ignition</a>
     </div>
   </div>
 </header>
 
 <section class="hero">
-  <div class="container hero-grid">
+  <div class="container hero-grid reveal">
     <div>
       <span class="pill">Primary Offer</span>
       <h1>Inbox Ignition Pack</h1>
@@ -289,75 +319,32 @@
 
     <div class="hero-card">
       <div class="row"><strong>Deliverable</strong><span>Custom Outreach System</span></div>
-      <div class="row"><strong>Emails</strong><span>5-Step High-Intent Sequence</span></div>
+      <div class="row"><strong>Emails</strong><span>5-Step Sequence</span></div>
       <div class="row"><strong>Built For</strong><span>High-Value Services</span></div>
       <div class="row"><strong>Goal</strong><span>Replies & Calls</span></div>
     </div>
   </div>
 </section>
 
-<!-- WHAT YOU GET -->
-<section>
-  <div class="container">
-    <h2>What You Actually Get</h2>
-    <p>No templates. No fluff. A system that’s built around your business.</p>
-
-    <div class="grid-3">
-      <div class="box">
-        <h3>Strategic Foundation</h3>
-        <p>Offer clarity, ICP definition, pricing context, and positioning — before any copy is written.</p>
-      </div>
-
-      <div class="box">
-        <h3>5-Step Email Sequence</h3>
-        <p>Conversation-first outbound designed to generate replies, not get ignored.</p>
-      </div>
-
-      <div class="box">
-        <h3>Psychology-Driven Copy</h3>
-        <p>Trust-based messaging that feels human, relevant, and natural.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROCESS -->
-<section id="process" class="process">
+<section id="process" class="process reveal">
   <div class="container">
     <h2>The Process</h2>
-    <p>Every pack follows the same proven flow.</p>
+    <p>A structured system — not guesswork.</p>
 
     <div class="steps">
       <div class="step"><span>01</span><p>Offer & ICP Mapping</p></div>
       <div class="step"><span>02</span><p>Positioning & Angles</p></div>
       <div class="step"><span>03</span><p>Sequence Drafting</p></div>
-      <div class="step"><span>04</span><p>Refinement & Polish</p></div>
+      <div class="step"><span>04</span><p>Refinement</p></div>
       <div class="step"><span>05</span><p>Usage & Optimization</p></div>
     </div>
   </div>
 </section>
 
-<!-- REQUIREMENTS -->
-<section class="requirements">
+<section id="cta" class="cta reveal">
   <div class="container">
-    <h2>What We Need From You</h2>
-    <p>To build this properly, we need real inputs — not guesses.</p>
-
-    <div class="req-list">
-      <div class="req">Your offer & product details</div>
-      <div class="req">Ideal customer profile (ICP)</div>
-      <div class="req">Pricing & deal structure</div>
-      <div class="req">Previous clients or proof (if any)</div>
-      <div class="req">Primary outreach goal</div>
-      <div class="req">Target market or niche</div>
-    </div>
-  </div>
-</section>
-
-<section id="cta" class="cta">
-  <div class="container">
-    <h2>Ready to Build Your Outbound Foundation?</h2>
-    <p>If you want conversations that convert — not cheap volume — this is built for you.</p>
+    <h2>Ready to Build Outbound That Converts?</h2>
+    <p>If you want conversations — not noise — this is built for you.</p>
 
     <div style="margin-top:40px;">
       <a href="https://forms.gle/yYoQo63vNQ5UpcFAA"
@@ -372,6 +359,17 @@
 <footer>
   © 2026 DealRush. Inbox infrastructure, done right.
 </footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.15 });
+
+  reveals.forEach(r => observer.observe(r));
+</script>
 
 </body>
 </html>
