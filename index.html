@@ -1,145 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Inbox Ignition — DealRush</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Inbox Ignition — DealRush</title>
 
-  <link rel="icon" type="image/png" href="dealrush-logo.png" />
+<style>
+:root {
+  --blue: #5f7cff;
+  --blue-soft: #eef2ff;
+  --dark: #0b0f1a;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --bg: #ffffff;
+}
 
-  <style>
-    :root {
-      --text: #111;
-      --muted: #6b6b6b;
-      --border: #e6e6e6;
-      --bg: #ffffff;
-    }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+  background: var(--bg);
+  color: var(--dark);
+  line-height: 1.6;
+}
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.65;
-    }
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+/* NAV */
+header {
+  position: sticky;
+  top: 0;
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+}
 
-    .container {
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 72px;
+}
 
-    header {
-      padding: 28px 0;
-      border-bottom: 1px solid var(--border);
-    }
+nav strong {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
 
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+nav a {
+  margin-left: 24px;
+  font-weight: 500;
+  color: var(--muted);
+}
 
-    nav a {
-      margin-left: 20px;
-      color: var(--muted);
-      font-weight: 500;
-    }
+nav a:hover {
+  color: var(--dark);
+}
 
-    nav a:hover {
-      color: var(--text);
-    }
+/* HERO */
+.hero {
+  padding: 120px 0 100px;
+  background:
+    radial-gradient(600px circle at 20% 10%, var(--blue-soft), transparent 60%),
+    radial-gradient(600px circle at 80% 30%, #f5f7ff, transparent 60%);
+}
 
-    section {
-      padding: 96px 0;
-    }
+.hero h1 {
+  font-size: 3.4rem;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  max-width: 820px;
+}
 
-    h1 {
-      font-size: 3.1rem;
-      font-weight: 700;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-    }
+.hero h1 span {
+  color: var(--blue);
+}
 
-    h2 {
-      font-size: 2.2rem;
-      margin-bottom: 20px;
-    }
+.hero p {
+  margin-top: 24px;
+  font-size: 1.15rem;
+  color: var(--muted);
+  max-width: 640px;
+}
 
-    p {
-      max-width: 640px;
-      color: var(--muted);
-      font-size: 1.05rem;
-    }
+.cta {
+  margin-top: 40px;
+  display: flex;
+  gap: 16px;
+}
 
-    .hero p {
-      font-size: 1.2rem;
-      margin-top: 24px;
-    }
+.btn {
+  padding: 14px 30px;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
 
-    .cta-group {
-      margin-top: 40px;
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
+.btn-primary {
+  background: linear-gradient(135deg, var(--blue), #7c92ff);
+  color: white;
+  box-shadow: 0 10px 30px rgba(95,124,255,0.25);
+}
 
-    .btn {
-      padding: 14px 28px;
-      font-weight: 600;
-      border-radius: 6px;
-      transition: 0.2s ease;
-    }
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 40px rgba(95,124,255,0.35);
+}
 
-    .btn-primary {
-      background: #111;
-      color: #fff;
-    }
+.btn-secondary {
+  border: 1px solid var(--border);
+  color: var(--dark);
+}
 
-    .btn-primary:hover {
-      opacity: 0.85;
-    }
+.btn-secondary:hover {
+  background: #f9fafb;
+}
 
-    .btn-secondary {
-      border: 1px solid var(--border);
-    }
+/* SECTION */
+section {
+  padding: 100px 0;
+}
 
-    .btn-secondary:hover {
-      background: #f5f5f5;
-    }
+h2 {
+  font-size: 2.3rem;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 40px;
-      margin-top: 48px;
-    }
+section p {
+  color: var(--muted);
+  max-width: 620px;
+}
 
-    .item h3 {
-      margin-bottom: 8px;
-      font-size: 1.15rem;
-    }
+/* CARDS */
+.grid {
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 32px;
+}
 
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 32px 0;
-      font-size: 0.9rem;
-      color: var(--muted);
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
-  </style>
+.card {
+  padding: 32px;
+  border-radius: 18px;
+  background: white;
+  border: 1px solid var(--border);
+  transition: all 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--blue);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.06);
+}
+
+.card h3 {
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.card p {
+  font-size: 0.95rem;
+}
+
+/* WHO FOR */
+.list {
+  margin-top: 20px;
+}
+
+.list li {
+  margin-bottom: 10px;
+  color: var(--muted);
+}
+
+/* FINAL CTA */
+.final {
+  background: linear-gradient(180deg, #f8f9ff, white);
+  border-top: 1px solid var(--border);
+}
+
+.final h2 span {
+  color: var(--blue);
+}
+
+/* FOOTER */
+footer {
+  padding: 40px 0;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+</style>
 </head>
 
 <body>
@@ -151,7 +211,7 @@
       <div>
         <a href="#how">How it works</a>
         <a href="#fit">Who it’s for</a>
-        <a href="https://calendly.com/archit-dealrush/30min" target="_blank">Book Call</a>
+        <a href="#">Book Call</a>
       </div>
     </nav>
   </div>
@@ -160,70 +220,45 @@
 <section class="hero">
   <div class="container">
     <h1>
-      Turn cold outreach into booked calls —<br>
-      without sounding desperate.
+      Turn cold outreach into <span>booked calls</span><br>
+      — without sounding desperate.
     </h1>
 
     <p>
-      Inbox Ignition is a done-for-you outreach system built to start real
-      conversations and convert attention into revenue.
+      Inbox Ignition is a done-for-you outreach system built for people who
+      care about quality conversations, not inbox spam.
     </p>
 
-    <div class="cta-group">
-      <a href="https://forms.gle/yYoQo63vNQ5UpcFAA" class="btn btn-primary">
-        Get Inbox Ignition
-      </a>
-      <a href="#how" class="btn btn-secondary">
-        See how it works
-      </a>
+    <div class="cta">
+      <a class="btn btn-primary">Get Inbox Ignition</a>
+      <a class="btn btn-secondary">See how it works</a>
     </div>
-  </div>
-</section>
-
-<section>
-  <div class="container">
-    <h2>Most outreach fails before it even starts</h2>
-
-    <p>
-      Not because of tools — but because the message feels generic,
-      forced, or salesy.
-    </p>
-
-    <p style="margin-top: 16px;">
-      Inbox Ignition fixes this by building messaging that feels human,
-      relevant, and worth replying to.
-    </p>
   </div>
 </section>
 
 <section id="how">
   <div class="container">
-    <h2>What’s inside the Inbox Ignition Pack</h2>
+    <h2>What you actually get</h2>
 
     <div class="grid">
-      <div class="item">
-        <h3>Strategy foundation</h3>
-        <p>We define your offer, ICP, positioning, and intent before writing anything.</p>
+      <div class="card">
+        <h3>Strategic foundation</h3>
+        <p>Your offer, ICP, and positioning defined before a single word is written.</p>
       </div>
 
-      <div class="item">
-        <h3>5-step outreach sequence</h3>
-        <p>Carefully structured emails designed to start conversations, not annoy people.</p>
+      <div class="card">
+        <h3>5-step sequence</h3>
+        <p>Built to open conversations, not trigger spam filters.</p>
       </div>
 
-      <div class="item">
-        <h3>Psychology-backed copy</h3>
-        <p>Trust, curiosity, and relevance — without sounding salesy or robotic.</p>
+      <div class="card">
+        <h3>Psychology-first copy</h3>
+        <p>Human, relevant, and trust-driven — no marketing noise.</p>
       </div>
 
-      <div class="item">
-        <h3>Usage guidance</h3>
-        <p>When to send, how many to send, and how to personalize safely.</p>
-      </div>
-
-      <div class="item">
-        <h3>Feedback & refinement</h3>
-        <p>Iterate based on real responses, not guesses.</p>
+      <div class="card">
+        <h3>Execution guidance</h3>
+        <p>Exactly how to send, scale, and protect your domains.</p>
       </div>
     </div>
   </div>
@@ -232,41 +267,34 @@
 <section id="fit">
   <div class="container">
     <h2>This is for you if…</h2>
-
-    <ul style="margin-top:16px; padding-left:20px; color:var(--muted);">
-      <li>You sell a high-value service</li>
-      <li>You want more qualified conversations</li>
-      <li>You care about brand perception</li>
-      <li>You want consistency — not hacks</li>
+    <ul class="list">
+      <li>You sell high-ticket services</li>
+      <li>You rely on conversations to close</li>
+      <li>You want quality over volume</li>
+      <li>You’re done guessing</li>
     </ul>
   </div>
 </section>
 
-<section>
+<section class="final">
   <div class="container">
-    <h2>Ready to turn outreach into revenue?</h2>
-
+    <h2>
+      Ready to fix outbound — <span>properly?</span>
+    </h2>
     <p>
-      If Inbox Ignition makes sense for your business, we’ll move fast.
-      If it doesn’t, we’ll tell you straight.
+      If this makes sense for your business, we move fast.
+      If it doesn’t, we’ll say so.
     </p>
 
-    <div class="cta-group">
-      <a href="mailto:mgmt.dealrush@outlook.com" class="btn btn-primary">
-        Start the conversation
-      </a>
+    <div class="cta">
+      <a class="btn btn-primary">Start the conversation</a>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="container">
-    <div>© DealRush 2025</div>
-    <div>
-      <a href="terms.html">Terms</a> ·
-      <a href="privacy.html">Privacy</a> ·
-      <a href="mailto:mgmt.dealrush@outlook.com">Contact</a>
-    </div>
+    © DealRush — Built for serious operators
   </div>
 </footer>
 
