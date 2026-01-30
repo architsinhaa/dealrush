@@ -3,52 +3,51 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Inbox Ignition — DealRush</title>
+<title>Inbox Ignition Pack — DealRush</title>
 
 <style>
 :root {
   --blue: #5f7cff;
-  --blue-soft: #eef2ff;
+  --blue-glow: rgba(95,124,255,0.25);
+  --blue-soft: #f2f5ff;
   --dark: #0b0f1a;
   --muted: #6b7280;
-  --border: #e5e7eb;
+  --border: #e6e8f0;
   --bg: #ffffff;
 }
 
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
-  background: var(--bg);
+  margin: 0;
+  font-family: Inter, system-ui, sans-serif;
   color: var(--dark);
-  line-height: 1.6;
+  background: linear-gradient(180deg, #f6f8ff 0%, #ffffff 35%);
 }
 
 .container {
-  max-width: 1100px;
+  max-width: 1150px;
   margin: 0 auto;
   padding: 0 24px;
 }
 
-/* NAV */
+/* ================= NAV ================= */
 header {
   position: sticky;
   top: 0;
-  background: rgba(255,255,255,0.9);
-  backdrop-filter: blur(8px);
+  z-index: 50;
+  backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.75);
   border-bottom: 1px solid var(--border);
-  z-index: 100;
 }
 
 nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 nav strong {
@@ -66,19 +65,50 @@ nav a:hover {
   color: var(--dark);
 }
 
-/* HERO */
+/* ================= HERO ================= */
 .hero {
+  position: relative;
   padding: 120px 0 100px;
-  background:
-    radial-gradient(600px circle at 20% 10%, var(--blue-soft), transparent 60%),
-    radial-gradient(600px circle at 80% 30%, #f5f7ff, transparent 60%);
+  overflow: hidden;
+}
+
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  z-index: 0;
+}
+
+.hero::before {
+  width: 380px;
+  height: 380px;
+  background: var(--blue-glow);
+  top: -120px;
+  left: -120px;
+}
+
+.hero::after {
+  width: 420px;
+  height: 420px;
+  background: rgba(120,140,255,0.18);
+  bottom: -160px;
+  right: -160px;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 60px;
 }
 
 .hero h1 {
-  font-size: 3.4rem;
+  font-size: 3.2rem;
   line-height: 1.1;
   letter-spacing: -0.03em;
-  max-width: 820px;
 }
 
 .hero h1 span {
@@ -89,115 +119,149 @@ nav a:hover {
   margin-top: 24px;
   font-size: 1.15rem;
   color: var(--muted);
-  max-width: 640px;
+  max-width: 520px;
+}
+
+.badges {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.badge {
+  padding: 6px 14px;
+  font-size: 0.75rem;
+  border-radius: 999px;
+  background: var(--blue-soft);
+  color: var(--blue);
+  font-weight: 600;
 }
 
 .cta {
-  margin-top: 40px;
+  margin-top: 36px;
   display: flex;
   gap: 16px;
 }
 
 .btn {
-  padding: 14px 30px;
-  border-radius: 10px;
+  padding: 14px 28px;
+  border-radius: 12px;
   font-weight: 600;
-  transition: all 0.2s ease;
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--blue), #7c92ff);
+  background: linear-gradient(135deg, var(--blue), #7b90ff);
   color: white;
-  box-shadow: 0 10px 30px rgba(95,124,255,0.25);
+  box-shadow: 0 18px 50px rgba(95,124,255,0.35);
 }
 
 .btn-primary:hover {
   transform: translateY(-1px);
-  box-shadow: 0 14px 40px rgba(95,124,255,0.35);
 }
 
 .btn-secondary {
   border: 1px solid var(--border);
-  color: var(--dark);
+  background: white;
 }
 
-.btn-secondary:hover {
-  background: #f9fafb;
+/* HERO CARD */
+.hero-card {
+  background: rgba(255,255,255,0.7);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(14px);
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.08);
 }
 
-/* SECTION */
-section {
+.hero-card h4 {
+  margin-bottom: 14px;
+}
+
+.hero-card ul li {
+  margin-bottom: 10px;
+  color: var(--muted);
+}
+
+/* ================= SECTION WRAPPER ================= */
+.section {
   padding: 100px 0;
 }
 
-h2 {
-  font-size: 2.3rem;
-  letter-spacing: -0.02em;
-  margin-bottom: 16px;
+.section-tinted {
+  background: var(--blue-soft);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 
-section p {
-  color: var(--muted);
-  max-width: 620px;
-}
-
-/* CARDS */
+/* ================= CARDS ================= */
 .grid {
-  margin-top: 56px;
   display: grid;
+  gap: 28px;
+}
+
+.grid-3 {
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 32px;
 }
 
 .card {
-  padding: 32px;
-  border-radius: 18px;
   background: white;
+  border-radius: 20px;
+  padding: 32px;
   border: 1px solid var(--border);
-  transition: all 0.25s ease;
-}
-
-.card:hover {
-  transform: translateY(-4px);
-  border-color: var(--blue);
-  box-shadow: 0 20px 50px rgba(0,0,0,0.06);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.06);
 }
 
 .card h3 {
   margin-bottom: 10px;
-  font-size: 1.1rem;
 }
 
-.card p {
-  font-size: 0.95rem;
+/* ================= SEQUENCE ================= */
+.sequence {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 24px;
+  margin-top: 40px;
 }
 
-/* WHO FOR */
-.list {
-  margin-top: 20px;
+.step {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  position: relative;
 }
 
-.list li {
-  margin-bottom: 10px;
-  color: var(--muted);
-}
-
-/* FINAL CTA */
-.final {
-  background: linear-gradient(180deg, #f8f9ff, white);
-  border-top: 1px solid var(--border);
-}
-
-.final h2 span {
+.step span {
+  font-size: 0.7rem;
   color: var(--blue);
+  font-weight: 700;
+  letter-spacing: 0.08em;
 }
 
-/* FOOTER */
+/* ================= FINAL CTA ================= */
+.final {
+  padding: 120px 0;
+  text-align: center;
+  background: linear-gradient(180deg, #ffffff, #f6f8ff);
+}
+
+.final-box {
+  max-width: 720px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 28px;
+  padding: 60px 40px;
+  border: 1px solid var(--border);
+  box-shadow: 0 40px 90px rgba(0,0,0,0.08);
+}
+
+/* ================= FOOTER ================= */
 footer {
   padding: 40px 0;
   border-top: 1px solid var(--border);
   color: var(--muted);
-  font-size: 0.9rem;
+  text-align: center;
 }
 </style>
 </head>
@@ -209,8 +273,8 @@ footer {
     <nav>
       <strong>DealRush</strong>
       <div>
-        <a href="#how">How it works</a>
-        <a href="#fit">Who it’s for</a>
+        <a href="#">How it works</a>
+        <a href="#">Who it’s for</a>
         <a href="#">Book Call</a>
       </div>
     </nav>
@@ -218,84 +282,94 @@ footer {
 </header>
 
 <section class="hero">
-  <div class="container">
-    <h1>
-      Turn cold outreach into <span>booked calls</span><br>
-      — without sounding desperate.
-    </h1>
+  <div class="container hero-inner">
+    <div>
+      <div class="badges">
+        <div class="badge">Done-for-you</div>
+        <div class="badge">Cold Outreach</div>
+        <div class="badge">High Intent</div>
+      </div>
 
-    <p>
-      Inbox Ignition is a done-for-you outreach system built for people who
-      care about quality conversations, not inbox spam.
-    </p>
+      <h1>
+        Turn cold emails into <span>real conversations</span>
+      </h1>
 
-    <div class="cta">
-      <a class="btn btn-primary">Get Inbox Ignition</a>
-      <a class="btn btn-secondary">See how it works</a>
+      <p>
+        Inbox Ignition is a premium outbound system built for operators who care
+        about replies, not volume.
+      </p>
+
+      <div class="cta">
+        <a class="btn btn-primary">Get Inbox Ignition</a>
+        <a class="btn btn-secondary">See process</a>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <h4>What this replaces</h4>
+      <ul>
+        <li>❌ Generic templates</li>
+        <li>❌ Spray-and-pray outreach</li>
+        <li>❌ Low reply rates</li>
+        <li>❌ Burnt domains</li>
+      </ul>
     </div>
   </div>
 </section>
 
-<section id="how">
+<section class="section">
   <div class="container">
     <h2>What you actually get</h2>
 
-    <div class="grid">
+    <div class="grid grid-3">
       <div class="card">
         <h3>Strategic foundation</h3>
-        <p>Your offer, ICP, and positioning defined before a single word is written.</p>
+        <p>Offer, ICP, and positioning mapped before copy.</p>
       </div>
-
       <div class="card">
-        <h3>5-step sequence</h3>
-        <p>Built to open conversations, not trigger spam filters.</p>
+        <h3>5-email sequence</h3>
+        <p>Built to open conversations, not pitch.</p>
       </div>
-
       <div class="card">
-        <h3>Psychology-first copy</h3>
-        <p>Human, relevant, and trust-driven — no marketing noise.</p>
-      </div>
-
-      <div class="card">
-        <h3>Execution guidance</h3>
-        <p>Exactly how to send, scale, and protect your domains.</p>
+        <h3>Psychology-driven copy</h3>
+        <p>Trust-based, human, and market-aware.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section id="fit">
+<section class="section section-tinted">
   <div class="container">
-    <h2>This is for you if…</h2>
-    <ul class="list">
-      <li>You sell high-ticket services</li>
-      <li>You rely on conversations to close</li>
-      <li>You want quality over volume</li>
-      <li>You’re done guessing</li>
-    </ul>
+    <h2>The sequence flow</h2>
+
+    <div class="sequence">
+      <div class="step"><span>EMAIL 1</span><p>Curiosity-driven intro</p></div>
+      <div class="step"><span>EMAIL 2</span><p>Credibility & relevance</p></div>
+      <div class="step"><span>EMAIL 3</span><p>Pain-point amplification</p></div>
+      <div class="step"><span>EMAIL 4</span><p>Soft value-based CTA</p></div>
+      <div class="step"><span>EMAIL 5</span><p>Clean breakup</p></div>
+    </div>
   </div>
 </section>
 
 <section class="final">
   <div class="container">
-    <h2>
-      Ready to fix outbound — <span>properly?</span>
-    </h2>
-    <p>
-      If this makes sense for your business, we move fast.
-      If it doesn’t, we’ll say so.
-    </p>
+    <div class="final-box">
+      <h2>Ready to fix outbound properly?</h2>
+      <p>
+        If this makes sense, we move fast.  
+        If it doesn’t, we’ll tell you.
+      </p>
 
-    <div class="cta">
-      <a class="btn btn-primary">Start the conversation</a>
+      <div class="cta">
+        <a class="btn btn-primary">Start the conversation</a>
+      </div>
     </div>
   </div>
 </section>
 
 <footer>
-  <div class="container">
-    © DealRush — Built for serious operators
-  </div>
+  © DealRush — Built for serious operators
 </footer>
 
 </body>
